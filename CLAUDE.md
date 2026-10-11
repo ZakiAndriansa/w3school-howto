@@ -16,7 +16,7 @@ Ask the user which member they are if it is unclear, and stay inside that member
 1. **HTML + CSS only.** No `<script>`, no `on*=` attributes, no JS frameworks, no build tools.
 2. **Links never navigate.** Every `<a>` in nav, sidebar, footer, share bar, pagination uses `href="#!"`. Only exceptions: `href="#id"` used for `:target` interactions, and `src` of iframes.
 3. Interactions must still work through CSS (checkbox hack, radio `:checked`, `:target`, `:hover`, `:focus-within`, `<details>`).
-4. **Self-made assets only.** Never hotlink or copy images, logos, or video from w3schools.com. Use own SVG, CSS shapes, or placeholder images the team created. Only exception, requested by Zaki: `assets/img/demos/slideshow-1.png` to `slideshow-4.png` are screenshots of the original Slideshow demo (credited in README). Do not add more.
+4. **Self-made assets only.** Never hotlink or copy images, logos, or video from w3schools.com. Use own SVG, CSS shapes, or placeholder images the team created. Only exception, requested by Zaki: the photos and avatars in `assets/img/demos/` are screenshots of the original demo images (credited in README). Adventure Mode art and ads must stay self-made.
 5. Keep the code beginner-readable (it is graded): semantic tags, clear class names, short comments per section.
 6. Do not edit files owned by the other member (see Ownership). If a change is needed there, tell the user instead.
 
@@ -145,6 +145,7 @@ Remote: https://github.com/ZakiAndriansa/w3school-howto.git. All branches below 
 | `feat/demos-tabs-buttons` | B | Tabs, Vertical Tabs, Tab Image Gallery, Alert Buttons, Outline Buttons, Change Background on Scroll |
 | `feat/adventure` | B | Adventure Mode |
 | `feat/slideshow-images` | B | Slideshow demo images (screenshots of the original) |
+| `feat/demo-images` | B | All other demo images (screenshots of the original) |
 
 1. Never commit directly to `main` (exception: docs agreed by both). Each demo branch also adds its cards to `.howtocontainer`.
 2. Before working on a branch: `git checkout main && git pull origin main && git checkout <branch> && git merge main`.
