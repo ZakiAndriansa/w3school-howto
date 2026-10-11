@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" preserveAspectRatio="xMidYMid slice">
+  <!-- Gurun pasir dengan kaktus -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd27a"/>
+      <stop offset="1" stop-color="#fff1cf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="350" fill="url(#sky)"/>
+  <circle cx="230" cy="110" r="55" fill="#fff8e6"/>
+  <path d="M0 230 Q200 170 420 220 T1000 200 L1000 350 L0 350 Z" fill="#e7a95b"/>
+  <path d="M0 280 Q260 220 520 270 T1000 260 L1000 350 L0 350 Z" fill="#c9823f"/>
+  <path d="M0 320 Q300 290 600 320 T1000 310 L1000 350 L0 350 Z" fill="#a8652d"/>
+  <g fill="#3f7a46">
+    <rect x="742" y="170" width="18" height="110" rx="9"/>
+    <rect x="712" y="200" width="14" height="42" rx="7"/>
+    <rect x="712" y="230" width="38" height="12" rx="6"/>
+    <rect x="776" y="185" width="14" height="45" rx="7"/>
+    <rect x="752" y="218" width="38" height="12" rx="6"/>
+  </g>
+</svg>
