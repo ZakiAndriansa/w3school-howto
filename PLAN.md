@@ -49,7 +49,7 @@ Footer 4 kolom: Top Tutorials, Top References, Top Examples, Get Certified.
 
 | **Anggota A (kamu): layout** | **Anggota B (Zaki): konten interaktif** |
 |---|---|
-| Setup repo GitHub + invite B | 23 file `demos/*.html` (CSS murni) |
+| Setup repo GitHub + invite B | 22 kartu demo di `demos/*.html` (CSS murni) |
 | Kerangka `index.html` + grid 3 kolom | Section Adventure Mode + animasi (`css/adventure.css`) |
 | Top nav + panel menu (Tutorials dst) + bar topik | Memasang kartu demo + iframe ke `.howtocontainer` |
 | Sidebar 13 grup + versi mobile | Uji semua interaksi CSS |
@@ -119,7 +119,7 @@ cd w3school-howto
 | `feat/page-extras` | A | share bar, pagination, intro, responsive akhir |
 | `feat/demos-basic` | B | Slideshow, Login Form, Accordion |
 | `feat/demos-nav` | B | Hover Dropdowns, Click Dropdowns, Side Navigation, Fixed Sidebar, Top Navigation, Responsive Top Navigation, Fullscreen Navigation, Login Form in Navbar |
-| `feat/demos-modal-image` | B | Modal Box, Modal Header, Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay |
+| `feat/demos-modal-image` | B | Modal Box, Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay |
 | `feat/demos-tabs-buttons` | B | Tabs, Vertical Tabs, Tab Image Gallery, Alert Buttons, Outline Buttons, Change Background on Scroll |
 | `feat/adventure` | B | Learn in Adventure Mode + animasi |
 
@@ -146,7 +146,7 @@ Butuh perbaikan setelah merge? Buat branch baru dari `main`: `git checkout -b fi
 - [ ] Panel menu atas bisa dibuka dan ditutup tanpa JS
 - [ ] Sidebar bisa di-scroll sendiri, collapse di HP
 - [ ] Iklan gambar tampil, iklan video autoplay
-- [ ] 23 iframe demo ter-load, Console tanpa error 404
+- [ ] 22 kartu demo (iframe) ter-load, Console tanpa error 404
 - [ ] Adventure Mode beranimasi
 - [ ] Footer lengkap
 - [ ] Rapi di lebar 375px, 768px, 1280px
