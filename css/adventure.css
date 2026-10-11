@@ -1,4 +1,382 @@
 /* =========================================================
    adventure.css: section "Learn in Adventure Mode" (pemilik: Anggota B)
-   Diisi di branch feat/adventure.
+   Semua gambar pixel-art di assets/img/adventure/ buatan sendiri.
    ========================================================= */
+
+.advb {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  background-color: #dce9ef;
+  font-family: var(--font);
+  color: #16181d;
+}
+
+.advb img { max-width: none; }
+
+/* ---------- Latar ---------- */
+.advb-cloud {
+  position: absolute;
+  width: 96px;
+  image-rendering: pixelated;
+  opacity: .6;
+  animation: advbCloud 70s linear infinite;
+}
+
+.advb-cloud-1 { top: 18px; left: -120px; }
+.advb-cloud-2 { top: 64px; left: -120px; width: 64px; animation-duration: 95s; animation-delay: -40s; }
+
+@keyframes advbCloud {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(100vw + 240px)); }
+}
+
+.advb-field {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 126px;
+  bottom: 0;
+  background: url("../assets/img/adventure/tile-grass.svg") repeat;
+  background-size: 32px 32px;
+  image-rendering: pixelated;
+}
+
+.advb-road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 228px;
+  height: 62px;
+  background: url("../assets/img/adventure/tile-road.svg") repeat;
+  background-size: 32px 32px;
+  border-top: 4px solid #a89f88;
+  border-bottom: 4px solid #a89f88;
+  image-rendering: pixelated;
+}
+
+/* ---------- Panggung (lebar tetap, menempel di kanan) ---------- */
+.advb-stage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: max(0px, calc((100% - 1750px) / 2));
+  width: 1750px;
+  pointer-events: none;
+}
+
+.advb-stage a { pointer-events: auto; }
+
+.advb-prop,
+.advb-sign,
+.advb-chest-img {
+  position: absolute;
+  image-rendering: pixelated;
+}
+
+/* Pohon cemara bergoyang pelan */
+.advb-sway {
+  transform-origin: 50% 100%;
+  animation: advbSway 3s ease-in-out infinite alternate;
+}
+
+@keyframes advbSway {
+  from { transform: rotate(-2deg); }
+  to { transform: rotate(2deg); }
+}
+
+.advb-sign {
+  right: 852px;
+  top: 172px;
+  width: 128px;
+}
+
+/* ---------- Penjelajah berjalan bolak-balik ---------- */
+.advb-walk {
+  position: absolute;
+  right: 470px;
+  top: 178px;
+  width: 300px;
+  animation: advbWalk 26s ease-in-out infinite;
+}
+
+@keyframes advbWalk {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(74px); }
+}
+
+.advb-hero {
+  display: block;
+  width: 84px;
+  height: 112px;
+  background: url("../assets/img/adventure/explorer.svg") no-repeat 0 0;
+  background-size: 168px 112px;
+  image-rendering: pixelated;
+  /* langkah kaki (2 frame), badan naik-turun, berbalik arah di tengah perjalanan */
+  animation:
+    advbLegs .5s steps(2) infinite,
+    advbFlip 26s step-end infinite;
+}
+
+@keyframes advbLegs {
+  from { background-position: 0 0; }
+  to { background-position: -168px 0; }
+}
+
+@keyframes advbFlip {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(-1); }
+}
+
+.advb-bubble {
+  position: absolute;
+  left: 96px;
+  top: 16px;
+  padding: 12px 13px;
+  border: 3px solid #2b2016;
+  background: #fff;
+  box-shadow: 4px 4px 0 0 rgba(43, 32, 22, .32);
+  color: #2b2016;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  text-decoration: none;
+  animation: advbPop .5s ease-out 1s both, advbFloat 2.4s ease-in-out 1.5s infinite alternate;
+}
+
+/* Ekor bubble mengarah ke penjelajah */
+.advb-bubble::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 18px;
+  border: 7px solid transparent;
+  border-right-color: #2b2016;
+}
+
+.advb-bubble:hover { background: #fff8d6; }
+
+@keyframes advbPop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes advbFloat {
+  from { translate: 0 0; }
+  to { translate: 0 -4px; }
+}
+
+/* ---------- Peti harta: berkilau, koin meloncat saat hover ---------- */
+.advb-chest {
+  position: absolute;
+  right: 8px;
+  top: 236px;
+  width: 76px;
+  height: 56px;
+}
+
+.advb-chest-img { left: 0; top: 0; width: 76px; }
+
+.advb-chest-glow {
+  position: absolute;
+  left: -14px;
+  top: -18px;
+  width: 104px;
+  height: 90px;
+  background: radial-gradient(closest-side, rgba(255, 214, 64, .75), rgba(255, 214, 64, 0));
+  animation: advbGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes advbGlow {
+  from { opacity: .35; transform: scale(.9); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+.advb-coin {
+  position: absolute;
+  left: 35px;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  background: #ffc900;
+  box-shadow: 0 0 0 1px #c9971f;
+  opacity: 0;
+}
+
+.advb-chest:hover .advb-coin { animation: advbBurst .8s ease-out infinite; }
+
+@keyframes advbBurst {
+  0% { opacity: 0; transform: translate(0, 0) scale(.4); }
+  18% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1); }
+}
+
+/* ---------- Konten kiri dan kanan ---------- */
+.advb-inner {
+  position: relative;
+  display: flex;
+  max-width: 1750px;
+  margin: 0 auto;
+  padding: 20px 8px;
+  pointer-events: none;
+}
+
+.advb-inner a { pointer-events: auto; }
+
+.advb-left { flex: 0 0 207px; }
+
+.advb-card {
+  padding: 15px 12px 17px;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  background: #fff;
+  pointer-events: auto;
+}
+
+.advb-kicker {
+  margin: 0;
+  color: #04624a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.advb-title {
+  margin: 2px 0 10px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.advb-stats {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  background: #f7f9fa;
+}
+
+.advb-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 11px;
+  color: #5b6b63;
+  font-size: 12px;
+}
+
+.advb-stat + .advb-stat { border-top: 1px solid #e8ecee; }
+
+.advb-stat b {
+  color: #16181d;
+  font-size: 16px;
+}
+
+.advb-btn {
+  display: block;
+  padding: 7px 8px;
+  border-radius: 5px;
+  background: var(--green);
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.advb-btn:hover { background: var(--green-hover); }
+
+.advb-right {
+  min-width: 0;
+  padding: 15px 0 0 54px;
+}
+
+.advb-new {
+  margin: 0;
+  color: #7a4a12;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+}
+
+.advb-heading {
+  margin: 4px 0 2px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -.4px;
+}
+
+.advb-text {
+  margin: 0 0 14px;
+  color: #2f3d4a;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.advb-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.advb-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 169px;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid #a6a6a6;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.advb-badge:hover { background: #222; }
+
+.advb-badge svg {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+}
+
+.advb-badge small {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .advb-sign { display: none; }
+}
+
+@media (max-width: 992px) {
+  .advb-left { display: none; }
+  .advb-right { padding-left: 16px; }
+  .advb-props .advb-prop:nth-child(-n+5) { display: none; }
+  .advb-walk { top: 186px; }
+}
+
+/* Layar HP: teks di atas, panggung di bawah */
+@media (max-width: 700px) {
+  .advb-cloud { display: none; }
+  .advb { min-height: 470px; }
+  .advb-right { padding: 8px 8px 0; }
+  .advb-heading { font-size: 22px; }
+  .advb-badge { width: 160px; }
+  .advb-field { top: auto; height: 170px; }
+  .advb-road { top: auto; bottom: 46px; }
+  .advb-stage { left: 0; right: 0; width: auto; }
+  .advb-props { display: none; }
+  .advb-walk { right: auto; left: 8px; top: auto; bottom: 50px; }
+  .advb-chest { top: auto; bottom: 56px; }
+}
