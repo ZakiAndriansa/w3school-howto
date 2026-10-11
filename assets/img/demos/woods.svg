@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
+  <!-- Hutan berkabut -->
+  <defs>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9d8cf"/>
+      <stop offset="1" stop-color="#7f9a86"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#mist)"/>
+  <g fill="#9fb3a5">
+    <rect x="40" y="0" width="14" height="400"/><rect x="150" y="0" width="10" height="400"/>
+    <rect x="300" y="0" width="12" height="400"/><rect x="420" y="0" width="9" height="400"/>
+    <rect x="530" y="0" width="13" height="400"/>
+  </g>
+  <g fill="#5d7563">
+    <rect x="90" y="0" width="20" height="400"/><rect x="230" y="0" width="16" height="400"/>
+    <rect x="360" y="0" width="22" height="400"/><rect x="480" y="0" width="17" height="400"/>
+  </g>
+  <g fill="#2f3f33">
+    <rect x="0" y="0" width="34" height="400"/><rect x="190" y="0" width="28" height="400"/>
+    <rect x="560" y="0" width="40" height="400"/>
+  </g>
+  <path d="M0 330 Q150 300 300 330 T600 320 L600 400 L0 400 Z" fill="#3e5a3a"/>
+  <path d="M0 360 Q200 340 400 365 T600 355 L600 400 L0 400 Z" fill="#2b4128"/>
+  <rect width="600" height="400" fill="#ffffff" opacity="0.08"/>
+</svg>
