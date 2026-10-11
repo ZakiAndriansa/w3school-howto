@@ -74,7 +74,8 @@ video {
 .w3-card-4 h2 {
   margin: 0;
   padding: 10px 0;
-  font-size: 30px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 32px;
   font-weight: 400;
 }
 
@@ -85,13 +86,21 @@ video {
 }
 
 .howto-container {
-  margin: 12px 0 0;
+  margin: 0;
+  padding: 16px 0 8px;
 }
 
+/* Tombol hijau "Learn How To »" */
 .howto-link {
-  color: var(--text);
+  display: inline-block;
+  padding: 6px 18px;
+  background-color: var(--green);
+  color: #fff;
+  font-size: 17px;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
 .howto-link:hover {
-  color: var(--green);
+  background-color: var(--green-hover);
 }
