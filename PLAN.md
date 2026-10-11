@@ -17,7 +17,7 @@ Kelompok 2 orang: **Anggota A = kamu (partner)**, **Anggota B = Zaki**.
 1. **Hanya HTML + CSS.** Tidak boleh ada `<script>`, tidak boleh `onclick`/`onload`/dll.
 2. **Link tidak pindah halaman.** Semua `<a>` di nav, sidebar, footer pakai `href="#!"`.
    Dropdown, menu, modal tetap harus bisa dibuka/ditutup pakai trik CSS (lihat bagian 6).
-3. **Aset buatan sendiri** (logo, gambar iklan, video iklan, pixel-art). Jangan unduh aset asli W3Schools.
+3. **Aset buatan sendiri** (logo, gambar iklan, video iklan, pixel-art). Jangan unduh aset asli W3Schools. Pengecualian: 4 gambar demo Slideshow (`slideshow-1.png` s.d. `slideshow-4.png`) adalah screenshot dari situs asli atas permintaan Zaki.
 4. Font **Source Sans Pro** (Google Fonts). Warna utama:
 
    | Nama | Hex | Dipakai di |
@@ -122,6 +122,7 @@ cd w3school-howto
 | `feat/demos-modal-image` | B | Modal Box, Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay |
 | `feat/demos-tabs-buttons` | B | Tabs, Vertical Tabs, Tab Image Gallery, Alert Buttons, Outline Buttons, Change Background on Scroll |
 | `feat/adventure` | B | Learn in Adventure Mode + animasi |
+| `feat/slideshow-images` | B | Gambar demo Slideshow dari screenshot situs asli |
 
 **Setiap mulai kerja di sebuah branch (A dan B):**
 ```bash

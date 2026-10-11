@@ -150,3 +150,12 @@ video {
 @media (max-width: 660px) {
   .frame-buttons { height: 190px; }
 }
+
+/* Slideshow: tinggi iframe mengikuti lebar kartu agar gambar tetap 1000:350 seperti asli.
+   cqw = 1% lebar kartu (container query); 39px = area titik di bawah gambar */
+.w3-card-4 { container-type: inline-size; }
+
+.frame-slideshow {
+  height: 380px;
+  height: calc(100cqw * 0.35 + 39px);
+}
