@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Avatar polos untuk demo login -->
+  <circle cx="60" cy="60" r="60" fill="#d9e2ec"/>
+  <circle cx="60" cy="46" r="22" fill="#7b8794"/>
+  <path d="M20 104 Q60 62 100 104 A60 60 0 0 1 20 104 Z" fill="#7b8794"/>
+</svg>
