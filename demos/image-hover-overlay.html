@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Hover Overlay</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Verdana, sans-serif;
+      font-size: 16px;
+    }
+
+    .stage { background-color: #f1f1f1; }
+
+    .container {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Lapisan biru turun dari atas saat kursor masuk */
+    .overlay {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      background-color: #008CBA;
+      transition: .5s ease;
+    }
+
+    .container:hover .overlay {
+      bottom: 0;
+      height: 100%;
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 20px;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="container">
+      <img src="../assets/img/demos/avatar-flat.svg" alt="Avatar" class="image">
+      <div class="overlay">
+        <div class="text">Hello World</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
