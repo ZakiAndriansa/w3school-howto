@@ -143,3 +143,10 @@ video {
 @media (max-width: 660px) {
   .frame-login-navbar { height: 290px; }
 }
+
+/* Alert dan Outline Buttons: di layar sempit tombol turun beberapa baris */
+.frame-buttons { height: 62px; }
+
+@media (max-width: 660px) {
+  .frame-buttons { height: 190px; }
+}
