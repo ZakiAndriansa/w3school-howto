@@ -115,12 +115,12 @@ File names: kebab-case, e.g. `demos/slideshow.html`, `demos/login-form.html`, `d
 ## CSS replacements for JS
 | Need | Technique |
 |---|---|
-| Click-open panel / dropdown / hamburger / alert close | checkbox hack: hidden `<input type="checkbox" id>` + `<label for>` + `#id:checked ~ .target` |
+| Click-open panel / dropdown / hamburger | checkbox hack: hidden `<input type="checkbox" id>` + `<label for>` + `#id:checked ~ .target` |
 | Hover dropdown | `:hover`, `:focus-within` |
 | Slideshow prev/next/dots, tabs, gallery | hidden radios + `:checked ~` selectors (or `@keyframes` auto-play) |
 | Accordion | `<details><summary>` |
 | Modal, lightbox, login popup | `:target` (open `href="#modal1"`, close `href="#!"`) |
-| Change background on scroll | `animation-timeline: scroll()` (Chrome/Edge only, acceptable) |
+| Change background on scroll | stacked `background-size: cover` blocks + `position: fixed` text box (same as original, no JS needed) |
 | Video ad | `<video autoplay muted loop playsinline>` |
 | Adventure Mode | `@keyframes` + `steps()` sprite walk, swaying trees, blinking chest, bubble pop-in |
 
