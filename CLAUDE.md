@@ -8,7 +8,7 @@ Required: top nav, left sidebar, ads (image AND video), every demo box rendered 
 
 Team:
 1. **Anggota A (partner)**: page layout (`index.html` skeleton, `css/style.css`, nav, sidebar, ads, share bar, pagination, footer, responsive, deploy).
-2. **Anggota B (Zaki)**: `demos/*.html` (23 iframe demos), Adventure Mode (`css/adventure.css`), filling `.howtocontainer` and `section.advb`.
+2. **Anggota B (Zaki)**: `demos/*.html` (22 iframe demo cards), Adventure Mode (`css/adventure.css`), filling `.howtocontainer` and `section.advb`.
 
 Ask the user which member they are if it is unclear, and stay inside that member's files.
 
@@ -108,8 +108,8 @@ Demo card (styled by A, filled by B):
 ```
 `.w3-card-4`: white bg, `box-shadow: 0 4px 10px 0 rgba(0,0,0,.2), 0 4px 20px 0 rgba(0,0,0,.19)`, padding 16px, margin 0 auto 24px, max-width ~820px. `.howto-iframe`: width 100%, no border, height set per demo by B.
 
-## The 23 demos (page 1 of the original, in order)
-Slideshow, Login Form, Accordion, Hover Dropdowns, Click Dropdowns, Side Navigation, Fixed Sidebar, Modal Box, Modal Header, Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay, Tabs, Vertical Tabs, Tab Image Gallery, Alert Buttons, Outline Buttons, Top Navigation, Responsive Top Navigation, Fullscreen Navigation, Login Form in Navbar, Change Background on Scroll.
+## The 22 demo cards (page 1 of the original, in order)
+Slideshow, Login Form, Accordion, Hover Dropdowns, Click Dropdowns, Side Navigation, Fixed Sidebar, Modal Box (its popup header reads "Modal Header"; not a separate card), Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay, Tabs, Vertical Tabs, Tab Image Gallery, Alert Buttons, Outline Buttons, Top Navigation, Responsive Top Navigation, Fullscreen Navigation, Login Form in Navbar, Change Background on Scroll.
 File names: kebab-case, e.g. `demos/slideshow.html`, `demos/login-form.html`, `demos/change-bg-scroll.html`.
 
 ## CSS replacements for JS
@@ -141,7 +141,7 @@ Remote: https://github.com/ZakiAndriansa/w3school-howto.git. All branches below 
 | `feat/page-extras` | A | share bar, pagination, intro, final responsive |
 | `feat/demos-basic` | B | Slideshow, Login Form, Accordion |
 | `feat/demos-nav` | B | Hover Dropdowns, Click Dropdowns, Side Navigation, Fixed Sidebar, Top Navigation, Responsive Top Navigation, Fullscreen Navigation, Login Form in Navbar |
-| `feat/demos-modal-image` | B | Modal Box, Modal Header, Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay |
+| `feat/demos-modal-image` | B | Modal Box, Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay |
 | `feat/demos-tabs-buttons` | B | Tabs, Vertical Tabs, Tab Image Gallery, Alert Buttons, Outline Buttons, Change Background on Scroll |
 | `feat/adventure` | B | Adventure Mode |
 
