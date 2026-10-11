@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outline Buttons</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Verdana, sans-serif;
+      font-size: 16px;
+    }
+
+    /* Tombol bergaris tepi, terisi warna saat hover */
+    .btn {
+      display: inline-block;
+      margin: 4px 2px;
+      padding: 14px 28px;
+      border: 2px solid #000;
+      background-color: #fff;
+      color: #000;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .success { border-color: #04AA6D; color: green; }
+    .success:hover { background-color: #04AA6D; color: #fff; }
+
+    .info { border-color: #2196F3; color: dodgerblue; }
+    .info:hover { background-color: #2196F3; color: #fff; }
+
+    .warning { border-color: #ff9800; color: orange; }
+    .warning:hover { background-color: #ff9800; color: #fff; }
+
+    .danger { border-color: #f44336; color: red; }
+    .danger:hover { background-color: #f44336; color: #fff; }
+
+    .default { border-color: #e7e7e7; color: #000; }
+    .default:hover { background-color: #e7e7e7; }
+  </style>
+</head>
+<body>
+
+  <button class="btn success">Success</button>
+  <button class="btn info">Info</button>
+  <button class="btn warning">Warning</button>
+  <button class="btn danger">Danger</button>
+  <button class="btn default">Default</button>
+
+</body>
+</html>
