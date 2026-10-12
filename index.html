@@ -18,7 +18,11 @@
   </header>
 
   <!-- ===== BAR TOPIK (Anggota A, branch feat/topnav) ===== -->
+  <input type="checkbox" id="sidenav-toggle" hidden>
+  <label for="sidenav-toggle" class="sidenav-overlay" title="Close Sidebar"></label>
+
   <nav id="subtopnav">
+    <label class="sidenav-btn" for="sidenav-toggle" title="Open Sidebar">☰</label>
     <!-- HTML CSS JAVASCRIPT ... HOW TO (active) ... NODEJS -->
   </nav>
 
@@ -26,7 +30,166 @@
 
     <!-- ===== SIDEBAR KIRI (Anggota A, branch feat/sidebar) ===== -->
     <aside id="sidenav">
-      <!-- input search + 13 grup link -->
+      <label for="sidenav-toggle" class="sidenav-close-btn" title="Close Sidebar">✕</label>
+      <div class="sidenav-search-box">
+        <input type="text" class="sidenav-search" placeholder="Search...">
+      </div>
+
+      <!-- 1. HOW TO -->
+      <h2 class="sidenav-heading">HOW TO</h2>
+      <a href="#!" class="sidenav-link active">HowTo Home</a>
+
+      <!-- 2. Menus -->
+      <h2 class="sidenav-heading">Menus</h2>
+      <a href="#!" class="sidenav-link">Icon Bar</a>
+      <a href="#!" class="sidenav-link">Menu Icon</a>
+      <a href="#!" class="sidenav-link">Accordion</a>
+      <a href="#!" class="sidenav-link">Tabs</a>
+      <a href="#!" class="sidenav-link">Vertical Tabs</a>
+      <a href="#!" class="sidenav-link">Tab Headers</a>
+      <a href="#!" class="sidenav-link">Full Page Tabs</a>
+      <a href="#!" class="sidenav-link">Hover Tabs</a>
+      <a href="#!" class="sidenav-link">Top Navigation</a>
+      <a href="#!" class="sidenav-link">Responsive Topnav</a>
+      <a href="#!" class="sidenav-link">Split Navigation</a>
+      <a href="#!" class="sidenav-link">Navbar with Icons</a>
+      <a href="#!" class="sidenav-link">Search Menu</a>
+      <a href="#!" class="sidenav-link">Search Bar</a>
+      <a href="#!" class="sidenav-link">Fixed Sidebar</a>
+      <a href="#!" class="sidenav-link">Side Navigation</a>
+      <a href="#!" class="sidenav-link">Responsive Sidebar</a>
+      <a href="#!" class="sidenav-link">Fullscreen Navigation</a>
+      <a href="#!" class="sidenav-link">Hover Dropdowns</a>
+      <a href="#!" class="sidenav-link">Click Dropdowns</a>
+      <a href="#!" class="sidenav-link">Dropdown in Topnav</a>
+      <a href="#!" class="sidenav-link">Dropdown in Sidenav</a>
+      <a href="#!" class="sidenav-link">Pagination</a>
+
+      <!-- 3. Images -->
+      <h2 class="sidenav-heading">Images</h2>
+      <a href="#!" class="sidenav-link">Slideshow</a>
+      <a href="#!" class="sidenav-link">Slideshow Gallery</a>
+      <a href="#!" class="sidenav-link">Modal Images</a>
+      <a href="#!" class="sidenav-link">Lightbox</a>
+      <a href="#!" class="sidenav-link">Responsive Image Grid</a>
+      <a href="#!" class="sidenav-link">Image Grid</a>
+      <a href="#!" class="sidenav-link">Image Gallery</a>
+      <a href="#!" class="sidenav-link">Image Overlay Fade</a>
+      <a href="#!" class="sidenav-link">Image Overlay Slide</a>
+      <a href="#!" class="sidenav-link">Thumbnails</a>
+      <a href="#!" class="sidenav-link">Meet the Team</a>
+      <a href="#!" class="sidenav-link">Flip an Image</a>
+      <a href="#!" class="sidenav-link">Portfolio Gallery</a>
+
+      <!-- 4. Buttons -->
+      <h2 class="sidenav-heading">Buttons</h2>
+      <a href="#!" class="sidenav-link">Alert Buttons</a>
+      <a href="#!" class="sidenav-link">Outline Buttons</a>
+      <a href="#!" class="sidenav-link">Split Buttons</a>
+      <a href="#!" class="sidenav-link">Animated Buttons</a>
+      <a href="#!" class="sidenav-link">Fading Buttons</a>
+      <a href="#!" class="sidenav-link">Social Media Buttons</a>
+      <a href="#!" class="sidenav-link">Download Buttons</a>
+      <a href="#!" class="sidenav-link">Pill Buttons</a>
+      <a href="#!" class="sidenav-link">Icon Buttons</a>
+      <a href="#!" class="sidenav-link">Round Buttons</a>
+      <a href="#!" class="sidenav-link">Scroll To Top</a>
+
+      <!-- 5. Forms -->
+      <h2 class="sidenav-heading">Forms</h2>
+      <a href="#!" class="sidenav-link">Login Form</a>
+      <a href="#!" class="sidenav-link">Signup Form</a>
+      <a href="#!" class="sidenav-link">Checkout Form</a>
+      <a href="#!" class="sidenav-link">Contact Form</a>
+      <a href="#!" class="sidenav-link">Register Form</a>
+      <a href="#!" class="sidenav-link">Form with Icons</a>
+      <a href="#!" class="sidenav-link">Newsletter</a>
+      <a href="#!" class="sidenav-link">Responsive Form</a>
+      <a href="#!" class="sidenav-link">Login Form in Navbar</a>
+      <a href="#!" class="sidenav-link">Custom Checkbox</a>
+      <a href="#!" class="sidenav-link">Toggle Switch</a>
+
+      <!-- 6. Filters -->
+      <h2 class="sidenav-heading">Filters</h2>
+      <a href="#!" class="sidenav-link">Filter List</a>
+      <a href="#!" class="sidenav-link">Filter Table</a>
+      <a href="#!" class="sidenav-link">Filter Elements</a>
+      <a href="#!" class="sidenav-link">Filter Dropdown</a>
+      <a href="#!" class="sidenav-link">Sort List</a>
+      <a href="#!" class="sidenav-link">Sort Table</a>
+
+      <!-- 7. Tables -->
+      <h2 class="sidenav-heading">Tables</h2>
+      <a href="#!" class="sidenav-link">Zebra Striped Table</a>
+      <a href="#!" class="sidenav-link">Center Tables</a>
+      <a href="#!" class="sidenav-link">Full-width Table</a>
+      <a href="#!" class="sidenav-link">Nested Table</a>
+      <a href="#!" class="sidenav-link">Side-by-side Tables</a>
+      <a href="#!" class="sidenav-link">Responsive Tables</a>
+      <a href="#!" class="sidenav-link">Comparison Table</a>
+
+      <!-- 8. More -->
+      <h2 class="sidenav-heading">More</h2>
+      <a href="#!" class="sidenav-link">Fullscreen Video</a>
+      <a href="#!" class="sidenav-link">Modal Boxes</a>
+      <a href="#!" class="sidenav-link">Timeline</a>
+      <a href="#!" class="sidenav-link">Progress Bars</a>
+      <a href="#!" class="sidenav-link">Skill Bar</a>
+      <a href="#!" class="sidenav-link">Tooltips</a>
+      <a href="#!" class="sidenav-link">Loaders</a>
+      <a href="#!" class="sidenav-link">Badges</a>
+      <a href="#!" class="sidenav-link">Star Rating</a>
+      <a href="#!" class="sidenav-link">Cards</a>
+      <a href="#!" class="sidenav-link">Flip Card</a>
+      <a href="#!" class="sidenav-link">Alerts</a>
+      <a href="#!" class="sidenav-link">Notes</a>
+      <a href="#!" class="sidenav-link">Labels</a>
+      <a href="#!" class="sidenav-link">Snackbar</a>
+      <a href="#!" class="sidenav-link">Smooth Scroll</a>
+      <a href="#!" class="sidenav-link">Pricing Table</a>
+      <a href="#!" class="sidenav-link">Parallax</a>
+
+      <!-- 9. Website -->
+      <h2 class="sidenav-heading">Website</h2>
+      <a href="#!" class="sidenav-link">Create a Website</a>
+      <a href="#!" class="sidenav-link">Make a Website</a>
+      <a href="#!" class="sidenav-link">Create a Portfolio</a>
+      <a href="#!" class="sidenav-link">Create a Resume</a>
+      <a href="#!" class="sidenav-link">Make a Restaurant Website</a>
+      <a href="#!" class="sidenav-link">Center Website</a>
+      <a href="#!" class="sidenav-link">Contact Section</a>
+      <a href="#!" class="sidenav-link">About Page</a>
+
+      <!-- 10. Grid -->
+      <h2 class="sidenav-heading">Grid</h2>
+      <a href="#!" class="sidenav-link">2 Column Layout</a>
+      <a href="#!" class="sidenav-link">3 Column Layout</a>
+      <a href="#!" class="sidenav-link">4 Column Layout</a>
+      <a href="#!" class="sidenav-link">Expanding Grid</a>
+      <a href="#!" class="sidenav-link">List Grid View</a>
+      <a href="#!" class="sidenav-link">Column Cards</a>
+      <a href="#!" class="sidenav-link">Zig Zag Layout</a>
+      <a href="#!" class="sidenav-link">Blog Layout</a>
+
+      <!-- 11. Google -->
+      <h2 class="sidenav-heading">Google</h2>
+      <a href="#!" class="sidenav-link">Google Charts</a>
+      <a href="#!" class="sidenav-link">Google Fonts</a>
+      <a href="#!" class="sidenav-link">Google Font Pairings</a>
+      <a href="#!" class="sidenav-link">Google Set up Analytics</a>
+
+      <!-- 12. Converters -->
+      <h2 class="sidenav-heading">Converters</h2>
+      <a href="#!" class="sidenav-link">Convert Weight</a>
+      <a href="#!" class="sidenav-link">Convert Temperature</a>
+      <a href="#!" class="sidenav-link">Convert Length</a>
+      <a href="#!" class="sidenav-link">Convert Speed</a>
+
+      <!-- 13. Blog -->
+      <h2 class="sidenav-heading">Blog</h2>
+      <a href="#!" class="sidenav-link">Get a Developer Job</a>
+      <a href="#!" class="sidenav-link">Become a Front-End Dev.</a>
+      <a href="#!" class="sidenav-link">Hire Developers</a>
     </aside>
 
     <!-- ===== KONTEN UTAMA ===== -->
