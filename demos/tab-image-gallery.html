@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Image Gallery</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Verdana, sans-serif;
+      font-size: 16px;
+    }
+
+    img { display: block; width: 100%; }
+
+    /* Radio: gambar mana yang dibuka; "none" = semua ditutup */
+    .pic-radio { display: none; }
+
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .thumbs label { cursor: pointer; }
+
+    .thumbs img {
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .thumbs label:hover img { opacity: .6; }
+
+    /* Gambar besar di bawah thumbnail */
+    .picture {
+      display: none;
+      position: relative;
+      margin-top: 16px;
+      color: #fff;
+    }
+
+    .picture img {
+      aspect-ratio: 968 / 339;
+      object-fit: cover;
+    }
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 8px 16px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .close:hover { color: #000; background-color: #ccc; }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 8px 16px;
+      font-size: 18px;
+    }
+
+    #p-nature:checked ~ .pic-nature,
+    #p-snow:checked ~ .pic-snow,
+    #p-lights:checked ~ .pic-lights { display: block; }
+  </style>
+</head>
+<body>
+
+  <input type="radio" name="pic" id="p-nature" class="pic-radio" checked>
+  <input type="radio" name="pic" id="p-snow" class="pic-radio">
+  <input type="radio" name="pic" id="p-lights" class="pic-radio">
+  <input type="radio" name="pic" id="p-none" class="pic-radio">
+
+  <div class="thumbs">
+    <label for="p-nature"><img src="../assets/img/demos/nature.jpg" alt="Nature"></label>
+    <label for="p-snow"><img src="../assets/img/demos/snow.jpg" alt="Snow"></label>
+    <label for="p-lights"><img src="../assets/img/demos/lights.jpg" alt="Northern Lights"></label>
+  </div>
+
+  <div class="picture pic-nature">
+    <img src="../assets/img/demos/nature-wide.jpg" alt="Nature">
+    <label for="p-none" class="close">&times;</label>
+    <div class="caption">Nature</div>
+  </div>
+
+  <div class="picture pic-snow">
+    <img src="../assets/img/demos/snow-wide.jpg" alt="Snow">
+    <label for="p-none" class="close">&times;</label>
+    <div class="caption">Snow</div>
+  </div>
+
+  <div class="picture pic-lights">
+    <img src="../assets/img/demos/lights-wide.jpg" alt="Northern Lights">
+    <label for="p-none" class="close">&times;</label>
+    <div class="caption">Northern Lights</div>
+  </div>
+
+</body>
+</html>

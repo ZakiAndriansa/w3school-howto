@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Verdana, sans-serif;
+      font-size: 15px;
+    }
+
+    /* <details> = satu bagian accordion, <summary> = tombolnya */
+    .accordion summary {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2px;
+      padding: 18px;
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      list-style: none;
+      transition: background-color .4s;
+    }
+
+    /* Sembunyikan segitiga bawaan browser */
+    .accordion summary::-webkit-details-marker { display: none; }
+
+    .accordion summary::after {
+      content: "\002B";
+      font-weight: bold;
+      color: #777;
+    }
+
+    .accordion[open] summary,
+    .accordion summary:hover {
+      background-color: #ccc;
+    }
+
+    .accordion[open] summary::after { content: "\2212"; }
+
+    .panel {
+      padding: 0 18px;
+      background-color: #fff;
+    }
+
+    .accordion[open] .panel { animation: slide .3s ease-out; }
+
+    @keyframes slide {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <details class="accordion" open>
+    <summary>Section 1</summary>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </details>
+
+  <details class="accordion">
+    <summary>Section 2</summary>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </details>
+
+  <details class="accordion">
+    <summary>Section 3</summary>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </details>
+
+</body>
+</html>

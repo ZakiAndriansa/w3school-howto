@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hover Dropdowns</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Verdana, sans-serif;
+      font-size: 15px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      width: 100px;
+      padding: 11px 17px;
+      border: none;
+      background-color: #F4511E;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      background-color: #f9f9f9;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover { background-color: #f1f1f1; }
+
+    /* Menu muncul saat kursor di atas tombol atau saat fokus keyboard */
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content { display: block; }
+
+    .dropdown:hover .dropbtn { opacity: .95; }
+  </style>
+</head>
+<body>
+
+  <div class="dropdown">
+    <button class="dropbtn">Hover</button>
+    <div class="dropdown-content">
+      <a href="#!">Link 1</a>
+      <a href="#!">Link 2</a>
+      <a href="#!">Link 3</a>
+    </div>
+  </div>
+
+</body>
+</html>

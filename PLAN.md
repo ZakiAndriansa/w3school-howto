@@ -17,7 +17,7 @@ Kelompok 2 orang: **Anggota A = kamu (partner)**, **Anggota B = Zaki**.
 1. **Hanya HTML + CSS.** Tidak boleh ada `<script>`, tidak boleh `onclick`/`onload`/dll.
 2. **Link tidak pindah halaman.** Semua `<a>` di nav, sidebar, footer pakai `href="#!"`.
    Dropdown, menu, modal tetap harus bisa dibuka/ditutup pakai trik CSS (lihat bagian 6).
-3. **Aset buatan sendiri** (logo, gambar iklan, video iklan, pixel-art). Jangan unduh aset asli W3Schools.
+3. **Aset buatan sendiri** (logo, gambar iklan, video iklan, pixel-art). Jangan unduh aset asli W3Schools. Pengecualian atas permintaan Zaki: foto dan avatar di `assets/img/demos/` adalah screenshot gambar dari situs asli. Adventure Mode dan iklan tetap buatan sendiri.
 4. Font **Source Sans Pro** (Google Fonts). Warna utama:
 
    | Nama | Hex | Dipakai di |
@@ -49,7 +49,7 @@ Footer 4 kolom: Top Tutorials, Top References, Top Examples, Get Certified.
 
 | **Anggota A (kamu): layout** | **Anggota B (Zaki): konten interaktif** |
 |---|---|
-| Setup repo GitHub + invite B | 23 file `demos/*.html` (CSS murni) |
+| Setup repo GitHub + invite B | 22 kartu demo di `demos/*.html` (CSS murni) |
 | Kerangka `index.html` + grid 3 kolom | Section Adventure Mode + animasi (`css/adventure.css`) |
 | Top nav + panel menu (Tutorials dst) + bar topik | Memasang kartu demo + iframe ke `.howtocontainer` |
 | Sidebar 13 grup + versi mobile | Uji semua interaksi CSS |
@@ -119,9 +119,11 @@ cd w3school-howto
 | `feat/page-extras` | A | share bar, pagination, intro, responsive akhir |
 | `feat/demos-basic` | B | Slideshow, Login Form, Accordion |
 | `feat/demos-nav` | B | Hover Dropdowns, Click Dropdowns, Side Navigation, Fixed Sidebar, Top Navigation, Responsive Top Navigation, Fullscreen Navigation, Login Form in Navbar |
-| `feat/demos-modal-image` | B | Modal Box, Modal Header, Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay |
+| `feat/demos-modal-image` | B | Modal Box, Modal Image, Lightbox, Slideshow Gallery, Image Hover Overlay |
 | `feat/demos-tabs-buttons` | B | Tabs, Vertical Tabs, Tab Image Gallery, Alert Buttons, Outline Buttons, Change Background on Scroll |
 | `feat/adventure` | B | Learn in Adventure Mode + animasi |
+| `feat/slideshow-images` | B | Gambar demo Slideshow dari screenshot situs asli |
+| `feat/demo-images` | B | Semua gambar demo lain dari screenshot situs asli |
 
 **Setiap mulai kerja di sebuah branch (A dan B):**
 ```bash
@@ -146,7 +148,7 @@ Butuh perbaikan setelah merge? Buat branch baru dari `main`: `git checkout -b fi
 - [ ] Panel menu atas bisa dibuka dan ditutup tanpa JS
 - [ ] Sidebar bisa di-scroll sendiri, collapse di HP
 - [ ] Iklan gambar tampil, iklan video autoplay
-- [ ] 23 iframe demo ter-load, Console tanpa error 404
+- [ ] 22 kartu demo (iframe) ter-load, Console tanpa error 404
 - [ ] Adventure Mode beranimasi
 - [ ] Footer lengkap
 - [ ] Rapi di lebar 375px, 768px, 1280px

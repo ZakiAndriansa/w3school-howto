@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow Gallery</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Verdana, sans-serif;
+      font-size: 16px;
+    }
+
+    img { display: block; width: 100%; }
+
+    /* Radio penanda slide aktif (disembunyikan) */
+    .slide-radio { display: none; }
+
+    .slide {
+      display: none;
+      position: relative;
+    }
+
+    /* Tinggi gambar = tinggi iframe dikurangi caption (52px) dan thumbnail (90px) */
+    .slide img {
+      height: calc(100vh - 142px);
+      object-fit: cover;
+    }
+
+    #g1:checked ~ .slides .slide-1,
+    #g2:checked ~ .slides .slide-2,
+    #g3:checked ~ .slides .slide-3,
+    #g4:checked ~ .slides .slide-4,
+    #g5:checked ~ .slides .slide-5,
+    #g6:checked ~ .slides .slide-6 { display: block; }
+
+    .numbertext {
+      position: absolute;
+      top: 0;
+      padding: 8px 12px;
+      color: #f2f2f2;
+      font-size: 12px;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 40%;
+      padding: 16px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .prev { left: 0; border-radius: 0 3px 3px 0; }
+    .next { right: 0; border-radius: 3px 0 0 3px; }
+
+    .prev:hover,
+    .next:hover { background-color: rgba(0, 0, 0, .8); }
+
+    .caption {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 16px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    /* Baris 6 thumbnail */
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .thumbs label { cursor: pointer; }
+
+    .thumbs img {
+      height: 90px;
+      object-fit: cover;
+      opacity: .6;
+      transition: opacity .3s;
+    }
+
+    .thumbs label:hover img,
+    #g1:checked ~ .thumbs .t1 img,
+    #g2:checked ~ .thumbs .t2 img,
+    #g3:checked ~ .thumbs .t3 img,
+    #g4:checked ~ .thumbs .t4 img,
+    #g5:checked ~ .thumbs .t5 img,
+    #g6:checked ~ .thumbs .t6 img { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <input type="radio" name="gallery" id="g1" class="slide-radio" checked>
+  <input type="radio" name="gallery" id="g2" class="slide-radio">
+  <input type="radio" name="gallery" id="g3" class="slide-radio">
+  <input type="radio" name="gallery" id="g4" class="slide-radio">
+  <input type="radio" name="gallery" id="g5" class="slide-radio">
+  <input type="radio" name="gallery" id="g6" class="slide-radio">
+
+  <div class="slides">
+    <div class="slide slide-1">
+      <div class="numbertext">1 / 6</div>
+      <img src="../assets/img/demos/woods-wide.jpg" alt="The Woods">
+      <label for="g6" class="prev">&#10094;</label>
+      <label for="g2" class="next">&#10095;</label>
+      <div class="caption">The Woods</div>
+    </div>
+    <div class="slide slide-2">
+      <div class="numbertext">2 / 6</div>
+      <img src="../assets/img/demos/cinqueterre-wide.jpg" alt="Cinque Terre">
+      <label for="g1" class="prev">&#10094;</label>
+      <label for="g3" class="next">&#10095;</label>
+      <div class="caption">Cinque Terre</div>
+    </div>
+    <div class="slide slide-3">
+      <div class="numbertext">3 / 6</div>
+      <img src="../assets/img/demos/mountains-wide.jpg" alt="Mountains and fjords">
+      <label for="g2" class="prev">&#10094;</label>
+      <label for="g4" class="next">&#10095;</label>
+      <div class="caption">Mountains and fjords</div>
+    </div>
+    <div class="slide slide-4">
+      <div class="numbertext">4 / 6</div>
+      <img src="../assets/img/demos/lights-wide.jpg" alt="Northern Lights">
+      <label for="g3" class="prev">&#10094;</label>
+      <label for="g5" class="next">&#10095;</label>
+      <div class="caption">Northern Lights</div>
+    </div>
+    <div class="slide slide-5">
+      <div class="numbertext">5 / 6</div>
+      <img src="../assets/img/demos/nature-wide.jpg" alt="Nature and sunrise">
+      <label for="g4" class="prev">&#10094;</label>
+      <label for="g6" class="next">&#10095;</label>
+      <div class="caption">Nature and sunrise</div>
+    </div>
+    <div class="slide slide-6">
+      <div class="numbertext">6 / 6</div>
+      <img src="../assets/img/demos/snow-wide.jpg" alt="Snowy Mountains">
+      <label for="g5" class="prev">&#10094;</label>
+      <label for="g1" class="next">&#10095;</label>
+      <div class="caption">Snowy Mountains</div>
+    </div>
+  </div>
+
+  <div class="thumbs">
+    <label for="g1" class="t1"><img src="../assets/img/demos/woods.jpg" alt="The Woods"></label>
+    <label for="g2" class="t2"><img src="../assets/img/demos/cinqueterre.jpg" alt="Cinque Terre"></label>
+    <label for="g3" class="t3"><img src="../assets/img/demos/mountains.jpg" alt="Mountains and fjords"></label>
+    <label for="g4" class="t4"><img src="../assets/img/demos/lights.jpg" alt="Northern Lights"></label>
+    <label for="g5" class="t5"><img src="../assets/img/demos/nature.jpg" alt="Nature and sunrise"></label>
+    <label for="g6" class="t6"><img src="../assets/img/demos/snow.jpg" alt="Snowy Mountains"></label>
+  </div>
+
+</body>
+</html>
