@@ -78,14 +78,17 @@ a {
   background: #ffffff;
   max-width: 820px;
   margin: 0 auto 24px;
-  padding: 0 16px 16px;
+  padding: 0.01em 16px;
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .w3-card-4 h2 {
   margin: 0;
   padding: 10px 0;
-  font-size: 30px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 32px;
   font-weight: 400;
 }
 
@@ -95,16 +98,77 @@ a {
   border: 0;
 }
 
+/* Strip abu di bawah kartu, selebar kartu */
 .howto-container {
-  margin: 12px 0 0;
+  margin: 16px -16px 0;
+  padding: 24px 16px;
+  background-color: var(--sidebar);
+  border-radius: 5px;
 }
 
+/* Teks keterangan di atas iframe */
+.howto-note {
+  margin: 0 0 16px;
+}
+
+/* Dua iframe berdampingan (Fixed Sidebar) */
+.howto-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.howto-frame-bordered {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: 5px solid #ddd;
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  .howto-row { grid-template-columns: 1fr; }
+  .hide-small { display: none; }
+}
+
+/* Tombol hijau "Learn How To »" */
 .howto-link {
-  color: var(--text);
+  display: inline-block;
+  padding: 6px 18px;
+  background-color: var(--green);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 25.5px;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
 .howto-link:hover {
-  color: var(--green);
+  background-color: var(--green-hover);
+}
+
+/* Login Form in Navbar: di layar sempit item bertumpuk, iframe perlu lebih tinggi */
+.frame-login-navbar { height: 49px; }
+
+@media (max-width: 660px) {
+  .frame-login-navbar { height: 290px; }
+}
+
+/* Alert dan Outline Buttons: di layar sempit tombol turun beberapa baris */
+.frame-buttons { height: 62px; }
+
+@media (max-width: 660px) {
+  .frame-buttons { height: 190px; }
+}
+
+/* Slideshow: tinggi iframe mengikuti lebar kartu agar gambar tetap 1000:350 seperti asli.
+   cqw = 1% lebar kartu (container query); 39px = area titik di bawah gambar */
+.w3-card-4 { container-type: inline-size; }
+
+.frame-slideshow {
+  height: 380px;
+  height: calc(100cqw * 0.35 + 39px);
 }
 
 /* =========================================================
