@@ -1,6 +1,6 @@
 /* =========================================================
-   style.css: layout utama & navigasi (pemilik: Anggota A)
-   Branch: feat/topnav (Komponen: Top Navigation & Subtopnav)
+   style.css: layout utama, navigasi & sidebar (pemilik: Anggota A)
+   Komponen: Top Navigation, Subtopnav, Sidebar Kiri 13 Grup & Mobile Drawer
    ========================================================= */
 
 /* ---------- 1. Design Tokens ---------- */
@@ -13,6 +13,7 @@
   --purple: #9563F5;         /* Paid Courses button */
   --footer-link: #FFF4A3;
   --text: #000000;
+  --border-color: #e0e0e0;
   --topnav-h: 56px;          /* Ukuran presisi bar atas W3Schools */
   --subnav-h: 33px;          /* Ukuran presisi bar topik W3Schools */
   --sidenav-w: 230px;
@@ -57,10 +58,7 @@ a {
   display: grid;
   grid-template-columns: var(--sidenav-w) 1fr 300px;
   min-height: calc(100vh - var(--topnav-h) - var(--subnav-h));
-}
-
-#sidenav {
-  background-color: #ffffff;
+  position: relative;
 }
 
 #main {
@@ -684,4 +682,180 @@ nav#subtopnav a.active {
 
 .subnav-scroll-btn svg {
   display: block;
+}
+
+/* =========================================================
+   7. SIDEBAR KIRI (feat/sidebar)
+   ========================================================= */
+#sidenav-toggle {
+  display: none;
+}
+
+.sidenav-overlay {
+  display: none;
+  position: fixed;
+  top: calc(var(--topnav-h) + var(--subnav-h));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 70;
+}
+
+aside#sidenav {
+  position: sticky;
+  top: calc(var(--topnav-h) + var(--subnav-h));
+  height: calc(100vh - var(--topnav-h) - var(--subnav-h));
+  overflow-y: auto;
+  background-color: var(--sidebar);
+  padding: 12px 0 32px 8px;
+  border-right: 1px solid var(--border-color);
+  scrollbar-width: thin;
+  scrollbar-color: #bbbbbb var(--sidebar);
+  z-index: 50;
+}
+
+aside#sidenav::-webkit-scrollbar {
+  width: 6px;
+}
+
+aside#sidenav::-webkit-scrollbar-thumb {
+  background: #bbbbbb;
+  border-radius: 3px;
+}
+
+.sidenav-close-btn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: #000000;
+}
+
+.sidenav-search-box {
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.sidenav-search {
+  width: calc(100% - 16px);
+  height: 35px;
+  padding: 6px 10px;
+  margin: 0 10px 0 2px;
+  font-size: 14px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  outline: none;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: inherit;
+}
+
+.sidenav-search:focus {
+  border-color: var(--green);
+}
+
+.sidenav-heading {
+  font-size: 14px;
+  font-weight: 500;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 16px 0 4px 0;
+  padding: 0;
+}
+
+.sidenav-heading:first-of-type {
+  margin-top: 4px;
+}
+
+/* Regular Link: garis vertikal abu-abu 2px di sisi kiri dengan gap 8px dari tepi */
+.sidenav-link {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  padding: 2px 15px 1px 17px;
+  margin: 0;
+  line-height: 1.5;
+  border-left: 2px solid #cccccc;
+  background-color: transparent;
+  transition: background-color 0.15s;
+}
+
+.sidenav-link:hover {
+  background-color: #e3e6e8;
+  color: #000000;
+}
+
+/* Active Link: garis vertikal berubah warna hijau #04AA6D, latar abu-abu #d5d9dd */
+.sidenav-link.active {
+  border-left: 2px solid var(--green);
+  background-color: #d5d9dd;
+  color: #000000;
+  font-weight: 700;
+}
+
+.sidenav-link.active:hover {
+  background-color: #c6ccd2;
+}
+
+/* =========================================================
+   8. RESPONSIVE SIDEBAR (MOBILE HAMBURGER & OFF-CANVAS)
+   ========================================================= */
+.sidenav-btn {
+  display: none;
+  flex-shrink: 0;
+  padding: 0 14px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: transparent;
+  user-select: none;
+}
+
+.sidenav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidenav-btn {
+    display: inline-flex;
+  }
+
+  aside#sidenav {
+    position: fixed;
+    top: calc(var(--topnav-h) + var(--subnav-h));
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    height: calc(100vh - var(--topnav-h) - var(--subnav-h));
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 80;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidenav-close-btn {
+    display: block;
+  }
+
+  #sidenav-toggle:checked ~ .sidenav-overlay {
+    display: block;
+  }
+
+  #sidenav-toggle:checked ~ .layout aside#sidenav {
+    transform: translateX(0);
+  }
 }
