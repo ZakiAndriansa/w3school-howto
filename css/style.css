@@ -1,21 +1,21 @@
 /* =========================================================
-   style.css: layout utama & sidebar (pemilik: Anggota A)
-   Branch: feat/sidebar (Komponen: Sidebar Kiri 13 Grup & Mobile Drawer)
+   style.css: layout utama, navigasi & sidebar (pemilik: Anggota A)
+   Komponen: Top Navigation, Subtopnav, Sidebar Kiri 13 Grup & Mobile Drawer
    ========================================================= */
 
 /* ---------- 1. Design Tokens ---------- */
 :root {
-  --green: #04AA6D;
+  --green: #04AA6D;          /* Logo, Sign In, link hover */
   --green-hover: #059862;
-  --dark: #282A35;
+  --dark: #282A35;           /* Subtopnav, panel dropdown */
   --sidebar: #E7E9EB;
   --content-bg: #F1F1F1;
-  --purple: #9763F6;
+  --purple: #9563F5;         /* Paid Courses button */
   --footer-link: #FFF4A3;
   --text: #000000;
   --border-color: #e0e0e0;
-  --topnav-h: 56px;
-  --subnav-h: 33px;
+  --topnav-h: 56px;          /* Ukuran presisi bar atas W3Schools */
+  --subnav-h: 33px;          /* Ukuran presisi bar topik W3Schools */
   --sidenav-w: 230px;
   --font: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --mono: Consolas, Menlo, "Courier New", monospace;
@@ -39,6 +39,7 @@ body {
   line-height: 1.5;
   color: var(--text);
   background: #ffffff;
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -52,7 +53,7 @@ a {
   text-decoration: none;
 }
 
-/* ---------- 3. Layout 3 Kolom (Titik Sambung) ---------- */
+/* ---------- 3. Layout 3 Kolom (Titik Sambung Komponen) ---------- */
 .layout {
   display: grid;
   grid-template-columns: var(--sidenav-w) 1fr 300px;
@@ -169,7 +170,522 @@ a {
 }
 
 /* =========================================================
-   5. SIDEBAR KIRI (feat/sidebar)
+   5. TOP NAVIGATION BAR (#top-nav-bar)
+   ========================================================= */
+header#top-nav-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--topnav-h);
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px 0 10px;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tnb-left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Logo Resmi W3Schools */
+.tnb-logo {
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 0;
+  height: 100%;
+}
+
+.tnb-logo-img,
+.tnb-logo-svg {
+  width: auto;
+  height: 36px;
+  display: block;
+}
+
+/* Menu Dropdown (Tutorials, References, Exercises, Certificates) */
+.tnb-menu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.tnb-menu-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.tnb-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 16px;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.tnb-menu-btn:hover {
+  background-color: var(--green);
+  color: #ffffff;
+}
+
+.tnb-caret {
+  font-size: 11px;
+  display: inline-block;
+  color: #000000;
+  transition: transform 0.2s;
+}
+
+.tnb-menu-btn:hover .tnb-caret {
+  color: #ffffff;
+}
+
+/* Checkbox hack untuk Panel Menu Dropdown */
+.tnb-check {
+  display: none;
+}
+
+.tnb-check:checked + .tnb-menu-btn {
+  background-color: var(--dark);
+  color: #ffffff;
+}
+
+.tnb-check:checked + .tnb-menu-btn .tnb-caret {
+  transform: rotate(180deg);
+}
+
+/* Backdrop penutup ketika panel terbuka */
+.tnb-backdrop {
+  display: none;
+  position: fixed;
+  top: var(--topnav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 89;
+}
+
+/* Panel Modal Menu Dropdown */
+.tnb-panel {
+  display: none;
+  position: fixed;
+  top: var(--topnav-h);
+  left: 0;
+  right: 0;
+  max-height: calc(100vh - var(--topnav-h));
+  overflow-y: auto;
+  background-color: var(--dark);
+  color: #ffffff;
+  padding: 24px 32px 48px;
+  z-index: 90;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.tnb-check:checked ~ .tnb-backdrop,
+.tnb-check:checked ~ .tnb-panel {
+  display: block;
+}
+
+.tnb-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+.tnb-panel-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tnb-panel-close {
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  padding: 4px 12px;
+  color: #ffffff;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.tnb-panel-close:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--footer-link);
+}
+
+/* Grid isi panel */
+.tnb-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.tnb-panel-col h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--footer-link);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tnb-panel-col a {
+  display: block;
+  color: #ffffff;
+  padding: 6px 0;
+  font-size: 14px;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.tnb-panel-col a:hover {
+  color: var(--footer-link);
+  transform: translateX(4px);
+}
+
+/* Featured card di panel Tutorials */
+.tnb-featured-card {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.tnb-featured-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.tnb-featured-desc {
+  font-size: 13px;
+  color: #cccccc;
+  margin: 0;
+}
+
+.tnb-featured-btn {
+  background: var(--green);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tnb-featured-btn:hover {
+  background: var(--green-hover);
+}
+
+/* Form Pencarian di Header */
+.tnb-search {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 10px 8px;
+  height: 56px;
+  margin: 0;
+}
+
+.tnb-search input {
+  height: 36px;
+  padding: 5px 40px 5px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  font-size: 16px;
+  font-family: inherit;
+  width: 175px;
+  outline: none;
+  background: #ffffff;
+  color: #222222;
+  transition: width 0.25s ease, border-color 0.2s;
+}
+
+.tnb-search input::placeholder {
+  font-style: italic;
+  color: #555555;
+  font-size: 16px;
+}
+
+.tnb-search input:focus {
+  width: 210px;
+  border-color: var(--green);
+}
+
+.tnb-search button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+
+.tnb-search button svg {
+  width: 18px;
+  height: 18px;
+  fill: #000000;
+}
+
+/* Tombol More (⋮) */
+.tnb-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+  cursor: pointer;
+  user-select: none;
+  margin: 0 4px;
+  transition: background-color 0.15s;
+}
+
+.tnb-more:hover {
+  background-color: #f1f1f1;
+}
+
+/* Bagian Kanan Header (Spaces, Upgrade, App, Paid Courses, Sign In) */
+.tnb-right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  height: 100%;
+}
+
+.tnb-right-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  border-radius: 8px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.tnb-right-link:hover {
+  background-color: var(--green);
+  color: #ffffff;
+}
+
+/* App dengan Badge NEW (Rounded Pill mengambang di atas "pp") */
+.tnb-app-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  height: 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.tnb-app-link .badge-new {
+  position: absolute;
+  top: -2px;
+  right: 2px;
+  background-color: #FEBF0F;
+  color: #000000;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  pointer-events: none;
+}
+
+.tnb-app-link .tnb-app-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1;
+}
+
+.tnb-app-link:hover {
+  background-color: #f1f1f1;
+}
+
+.tnb-app-link:hover .tnb-app-title {
+  color: #000000;
+}
+
+/* Tombol Paid Courses (Rounded rectangle 10px, background ungu) */
+.btn-paid {
+  background-color: #9563F5;
+  color: #ffffff;
+  padding: 0 16px;
+  margin: 0 0 0 8px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s, opacity 0.15s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-paid:hover {
+  background-color: #824deb;
+  color: #ffffff;
+}
+
+/* Tombol Sign In (Rounded rectangle 10px, background hijau W3, teks tebal) */
+.btn-signin {
+  background-color: #04AA6D;
+  color: #ffffff;
+  padding: 0 20px;
+  margin: 0 0 0 14px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-signin:hover {
+  background-color: #059862;
+  color: #ffffff;
+}
+
+/* =========================================================
+   6. SUBTOPNAV (BAR TOPIK HORIZONTAL & ARROW SIDE SCROLL)
+   ========================================================= */
+.subnav-wrapper {
+  position: sticky;
+  top: var(--topnav-h);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--subnav-h);
+  background-color: #282A35;
+  z-index: 95;
+}
+
+nav#subtopnav {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #282A35;
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  letter-spacing: 1px;
+  scrollbar-width: none;
+  padding-right: 36px;
+}
+
+nav#subtopnav::-webkit-scrollbar {
+  display: none;
+}
+
+nav#subtopnav a {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 5px 15px;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f1f1f1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+nav#subtopnav a:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Tab HOW TO aktif (#ebedee, teks hitam tebal) */
+nav#subtopnav a.active {
+  background-color: #ebedee !important;
+  color: #000000 !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 15px;
+}
+
+/* Tombol Scroll Sisi Kanan (Arrow Side Scroll Chevron) */
+.subnav-scroll-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, rgba(40, 42, 53, 0) 0%, #282A35 35%, #282A35 100%);
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 2;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.subnav-scroll-btn:hover {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #000000 35%, #000000 100%);
+  color: #ffffff;
+}
+
+.subnav-scroll-btn svg {
+  display: block;
+}
+
+/* =========================================================
+   7. SIDEBAR KIRI (feat/sidebar)
    ========================================================= */
 #sidenav-toggle {
   display: none;
@@ -289,10 +805,11 @@ aside#sidenav::-webkit-scrollbar-thumb {
 }
 
 /* =========================================================
-   6. RESPONSIVE SIDEBAR (MOBILE HAMBURGER & OFF-CANVAS)
+   8. RESPONSIVE SIDEBAR (MOBILE HAMBURGER & OFF-CANVAS)
    ========================================================= */
 .sidenav-btn {
   display: none;
+  flex-shrink: 0;
   padding: 0 14px;
   height: 100%;
   align-items: center;
