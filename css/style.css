@@ -1,6 +1,6 @@
 /* =========================================================
-   style.css: layout utama, navigasi & sidebar (pemilik: Anggota A)
-   Komponen: Top Navigation, Subtopnav, Sidebar Kiri 13 Grup & Mobile Drawer
+   style.css: layout utama, navigasi, sidebar, iklan & footer (pemilik: Anggota A)
+   Komponen: Top Navigation, Subtopnav, Sidebar, Iklan, Page Extras, Footer
    ========================================================= */
 
 /* ---------- 1. Design Tokens ---------- */
@@ -1230,5 +1230,268 @@ aside#sidenav::-webkit-scrollbar-thumb {
 
   #sidenav-toggle:checked ~ .layout aside#sidenav {
     transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   9. FOOTER (#footer - feat/footer)
+   ========================================================= */
+@font-face {
+  font-family: 'fontawesome';
+  src: url('../lib/fonts/fontawesome.woff2') format('woff2'),
+       url('../lib/fonts/fontawesome.woff') format('woff'),
+       url('../lib/fonts/fontawesome.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-family: fontawesome, sans-serif;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  transform: translate(0, 0);
+}
+
+.fa-logo::before {
+  content: "\e822";
+}
+.fa-youtube::before {
+  content: "\e83f";
+}
+.fa-facebook-square::before {
+  content: "\e806";
+}
+.fa-discord::before {
+  content: "\e807";
+}
+.fa-instagram::before {
+  content: "\f16d";
+}
+.fa-linkedin-square::before {
+  content: "\f30c";
+}
+
+footer#footer {
+  width: 100%;
+  background-color: #282A35;
+  color: #dddddd;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#spacemyfooter {
+  padding: 40px 80px 20px;
+  max-width: 1500px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+#spacemyfooter * {
+  box-sizing: border-box;
+}
+
+.footerlinks_1 {
+  width: auto;
+  float: left;
+  padding: 40px 60px;
+  color: #FFF4A3;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.footerlinks_1:nth-child(1) {
+  padding: 30px 10px 30px 40px;
+}
+
+.footerlinks_1 .fa-logo {
+  font-size: 46px !important;
+  color: #dddddd;
+}
+
+.footerlinks_1 a {
+  text-decoration: none;
+  color: #FFF4A3;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.footerlinks_1 a:hover,
+.footerlinks_1 a:active {
+  text-decoration: underline;
+  color: #FFF4A3;
+}
+
+.footerlinks_1 a:hover i,
+.footerlinks_1 a:hover .fa-logo {
+  color: #FFF4A3 !important;
+}
+
+.footerlinks_2 {
+  width: auto;
+  float: left;
+  padding-left: 90px;
+  padding-right: 135px;
+  color: #dddddd;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.footerlinks_2:nth-child(1) {
+  padding-left: 50px;
+}
+
+.footerlinks_2:nth-child(4) {
+  padding-right: 0px;
+}
+
+.footerlinks_2 h5 {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  color: #ffffff;
+}
+
+.footerlinks_2 a,
+.footerlinks_2 a:link,
+.footerlinks_2 a:visited {
+  color: #dddddd;
+  text-decoration: none;
+  line-height: 20px;
+}
+
+.footerlinks_2 a:hover,
+.footerlinks_2 a:active {
+  color: #FFF4A3;
+  text-decoration: underline;
+}
+
+.footersome {
+  clear: both;
+  padding: 60px 40px 10px;
+  color: #dddddd;
+  font-size: 20px;
+  text-align: center;
+}
+
+.footersome a {
+  margin-right: 12px;
+  color: #dddddd;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footersome a:hover,
+.footersome a:active {
+  color: #FFF4A3;
+}
+
+.footersome .textlink {
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #dddddd;
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+}
+
+.footersome .textlink:hover,
+.footersome .textlink:active {
+  text-decoration: underline;
+  color: #FFF4A3;
+}
+
+.footertext {
+  color: #dddddd;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  padding-top: 15px;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+}
+
+.footertext a,
+.footertext a:link,
+.footertext a:visited {
+  color: #dddddd;
+  text-decoration: none;
+}
+
+.footertext a:hover,
+.footertext a:active {
+  color: #FFF4A3;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   10. RESPONSIVE FOOTER (Sesuai W3Schools)
+   ========================================================= */
+@media screen and (max-width: 1450px) {
+  #spacemyfooter {
+    max-width: 1100px;
+    padding: 30px 40px 20px;
+  }
+  .footerlinks_1 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .footerlinks_2 {
+    padding-right: 30px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left: 50px;
+  }
+  .footer-hide-special {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #spacemyfooter {
+    max-width: 1000px;
+    padding: 20px 20px 20px;
+  }
+  .footerlinks_1 {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+  }
+  .footerlinks_2 {
+    padding-left: 30px;
+    padding-right: 20px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .footerlinks_1 {
+    float: none;
+    display: inline-block;
+    padding: 10px 14px;
+  }
+  .footerlinks_2 {
+    width: 50%;
+    padding: 10px 10px 20px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footerlinks_2 {
+    width: 100%;
+    float: none;
   }
 }
