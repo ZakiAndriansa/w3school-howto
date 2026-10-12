@@ -9,7 +9,7 @@ Kelompok 2 orang: **Anggota A = kamu (partner)**, **Anggota B = Zaki**.
 1. Navigasi atas (2 bar: bar putih + bar topik gelap)
 2. Sidebar kiri
 3. Iklan: **gambar** dan **video**
-4. Semua demo konten (slideshow, login form, accordion, dst) di dalam **iframe**
+4. Semua demo konten (slideshow, accordion, dst) di dalam **iframe**. Pengecualian (keputusan Zaki): 6 demo popup (Login Form, Hover/Click Dropdowns, Side Navigation, Modal Box, Fullscreen Navigation) ditulis langsung di `index.html` + `css/howto-inline.css` agar popup menutupi seluruh halaman seperti asli
 5. Section **Learn in Adventure Mode** dengan animasi buatan sendiri
 6. Footer
 

@@ -4,11 +4,11 @@ Context for Claude Code. Human-readable plan: `PLAN.md`. Reply to the user in Ba
 
 ## Project
 University web programming assignment (2-person team). Clone the UI/UX of https://www.w3schools.com/howto/default.asp as closely as possible.
-Required: top nav, left sidebar, ads (image AND video), every demo box rendered inside an `<iframe>`, a "Learn in Adventure Mode" section with self-made animation, footer.
+Required: top nav, left sidebar, ads (image AND video), every demo box rendered inside an `<iframe>` (exception decided by Zaki: the 6 popup demos Login Form, Hover/Click Dropdowns, Side Navigation, Modal Box, Fullscreen Navigation are inline in `index.html` with `css/howto-inline.css`, because their popups must cover the whole page like the original), a "Learn in Adventure Mode" section with self-made animation, footer.
 
 Team:
 1. **Anggota A (partner)**: page layout (`index.html` skeleton, `css/style.css`, nav, sidebar, ads, share bar, pagination, footer, responsive, deploy).
-2. **Anggota B (Zaki)**: `demos/*.html` (22 iframe demo cards), Adventure Mode (`css/adventure.css`), filling `.howtocontainer` and `section.advb`.
+2. **Anggota B (Zaki)**: `demos/*.html` (16 iframe demo cards) + 6 inline popup cards (`css/howto-inline.css`), Adventure Mode (`css/adventure.css`), filling `.howtocontainer` and `section.advb`.
 
 Ask the user which member they are if it is unclear, and stay inside that member's files.
 
@@ -27,7 +27,7 @@ Ask the user which member they are if it is unclear, and stay inside that member
 | `css/style.css` | A |
 | `assets/ads/`, `assets/img/` (logo, icons) | A |
 | `demos/*.html` | B |
-| `css/adventure.css`, `assets/img/adventure/` | B |
+| `css/adventure.css`, `css/howto-inline.css`, `assets/img/adventure/` | B |
 | content inside `.howtocontainer` and `section.advb` in `index.html` | B |
 | `README.md`, `PLAN.md`, `CLAUDE.md` | both, via PR |
 
