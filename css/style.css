@@ -472,6 +472,21 @@ aside#right {
   height: calc(100cqw * 0.35 + 39px);
 }
 
+/* Modal Image: gambar 50% lebar dengan rasio 3:2, jadi tingginya 1/3 lebar kartu */
+.frame-modal-image {
+  height: 263px;
+  height: calc(100cqw / 3);
+}
+
+/* Lightbox: seperti asli, baris thumbnail melebar 8px ke kiri dan kanan.
+   Tiga gambar 3:2 dengan jarak 16px: tinggi = (lebar iframe - 32px) / 3 * 2/3 */
+.frame-lightbox {
+  width: calc(100% + 16px);
+  margin: 0 -8px;
+  height: 172px;
+  height: calc((100cqw - 16px) * 2 / 9);
+}
+
 /* ---------- Responsive Akhir ---------- */
 /* <= 992px: sidebar berubah jadi drawer (lihat bagian 8), kolom iklan kanan pindah ke bawah konten */
 @media screen and (max-width: 992px) {
