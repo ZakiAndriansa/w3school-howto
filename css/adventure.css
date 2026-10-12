@@ -1,665 +1,382 @@
-
 /* =========================================================
-   ACCOUNT + ADVENTURE FOOTER BANNER
-
-   Shown to everyone. Only the left half is session-gated:
-   TopNavBar strips .w3-hide from .user-anonymous elements once
-   the session is known, so signed-out visitors get the account
-   card and signed-in visitors get the app half alone. It also
-   puts w3s-user-authenticated on <body>, which is what the
-   signed-in layout below hangs off.
-
-   One band, no seam. The left is a card on plain white. The
-   world is built from the 32px tileset and dissolves in from
-   the middle, so the game grows in gradually rather than
-   starting at a line. A signpost divides the two halves.
-
-   Include it with
-     ASP   [SSI]  #include virtual="/lib/adventure/footer-signin-banner.html"
-     PHP   require dirname(__FILE__) . "/lib/adventure/footer-signin-banner.html"
+   adventure.css: section "Learn in Adventure Mode" (pemilik: Anggota B)
+   Semua gambar pixel-art di assets/img/adventure/ buatan sendiri.
    ========================================================= */
 
 .advb {
-  --far: #DCE9EF;
-
   position: relative;
-  width: 100%;
-  height: 340px;
+  min-height: 340px;
   overflow: hidden;
-
-  background: var(--far);
-  color: #16181D;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  background-color: #dce9ef;
+  font-family: var(--font);
+  color: #16181d;
 }
 
-.advb,
-.advb * {
-  box-sizing: border-box;
+.advb img { max-width: none; }
+
+/* ---------- Latar ---------- */
+.advb-cloud {
+  position: absolute;
+  width: 96px;
+  image-rendering: pixelated;
+  opacity: .6;
+  animation: advbCloud 70s linear infinite;
 }
 
+.advb-cloud-1 { top: 18px; left: -120px; }
+.advb-cloud-2 { top: 64px; left: -120px; width: 64px; animation-duration: 95s; animation-delay: -40s; }
 
-/* =========================================================
-   THE WORLD
-   Tiles are 32px. The road's grass boundary sprites are the
-   tileset's vertical originals rotated 90 degrees on disk,
-   which is why they are separate files.
-   ========================================================= */
+@keyframes advbCloud {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(100vw + 240px)); }
+}
 
 .advb-field {
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 214px;
-  z-index: 1;
-
-  pointer-events: none;
-  image-rendering: pixelated;
-
-  background: url(../adventure/img/map/grass.webp) repeat;
+  left: 0;
+  right: 0;
+  top: 126px;
+  bottom: 0;
+  background: url("../assets/img/adventure/tile-grass.svg") repeat;
   background-size: 32px 32px;
+  image-rendering: pixelated;
 }
 
 .advb-road {
   position: absolute;
-  left: 0; right: 0;
-
-  pointer-events: none;
-  image-rendering: pixelated;
-
-  background-repeat: repeat;
+  left: 0;
+  right: 0;
+  top: 228px;
+  height: 62px;
+  background: url("../assets/img/adventure/tile-road.svg") repeat;
   background-size: 32px 32px;
-
-}
-
-.advb-road-top { bottom: 84px; height: 32px; z-index: 2;
-  background-image: url(../adventure/img/map/roadEdgeTop.webp); }
-.advb-road-mid { bottom: 66px; height: 26px; z-index: 2;
-  background-image: url(../adventure/img/map/ground1.webp); }
-.advb-road-bot { bottom: 46px; height: 32px; z-index: 2;
-  background-image: url(../adventure/img/map/roadEdgeBottom.webp); }
-
-
-/* every prop carries the same dissolve as the ground, a touch
-   ahead of it, so a stump can never sit on faded grass. The
-   grass-backed tiles were cut out against grass.webp to make
-   real sprites, which is why leaf and mushroom are separate. */
-
-.advb-props {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 300px;
-  z-index: 4;
-
-  pointer-events: none;
-
-}
-
-.advb-prop {
-  position: absolute;
-  display: block;
+  border-top: 4px solid #a89f88;
+  border-bottom: 4px solid #a89f88;
   image-rendering: pixelated;
+}
+
+/* ---------- Panggung (lebar tetap, menempel di kanan) ---------- */
+.advb-stage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: max(0px, calc((100% - 1750px) / 2));
+  width: 1750px;
   pointer-events: none;
 }
 
+.advb-stage a { pointer-events: auto; }
 
-/* the wash that reads as forest rather than clearing */
-
-.advb-wash {
+.advb-prop,
+.advb-sign,
+.advb-chest-img {
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 200px;
-  z-index: 6;
-
-  pointer-events: none;
-
-  background: linear-gradient(180deg, rgba(20,48,26,.16) 0%, rgba(20,48,26,.05) 100%);
-
+  image-rendering: pixelated;
 }
 
+/* Pohon cemara bergoyang pelan */
+.advb-sway {
+  transform-origin: 50% 100%;
+  animation: advbSway 3s ease-in-out infinite alternate;
+}
 
-/* aerial mist: one constant gradient, top to bottom */
-
-.advb-mist {
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 300px;
-  z-index: 7;
-
-  pointer-events: none;
-
-  background: linear-gradient(180deg,
-    rgba(220,233,239,.90) 0%,
-    rgba(220,233,239,0) 100%);
-
+@keyframes advbSway {
+  from { transform: rotate(-2deg); }
+  to { transform: rotate(2deg); }
 }
 
 .advb-sign {
-  position: absolute;
-  z-index: 7;
-  bottom: 30px;
-  left: 44%;
-
-  display: block;
+  right: 852px;
+  top: 172px;
   width: 128px;
-  height: auto;
-
-  filter: drop-shadow(0 6px 10px rgba(20,40,24,.22));
 }
 
-
-/* =========================================================
-   THE OBJECT COLUMN
-   Terrain and atmosphere stay full-bleed, or a wide screen
-   would show bare background past the grass. The discrete
-   objects sit in the same 1300px column as the copy, so on a
-   very wide monitor the chest and the treeline stay with the
-   banner instead of drifting to the screen edge.
-   ========================================================= */
-
-.advb-stage {
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
-  max-width: 1750px;
-  margin: 0 auto;
-  /* no z-index, so the children keep competing with .advb-inner
-     rather than being trapped in a new stacking context */
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   THE CHEST
-   Flavour only: not a link, nothing claimed. There is no
-   open-lid art, so the sprite is drawn twice and clipped at
-   the gold band, and the top half rotates about the seam.
-   It sits outside .advb-props because that layer is
-   pointer-events:none and so could never take a hover.
-   ========================================================= */
-
-.advb-chest {
-  position: absolute;
-  right: 8px;
-  bottom: 16px;
-  /* above .advb-inner, which is a transparent full-band box at 8 and
-     comes later in the DOM. At 8 it swallowed the chest's hover. */
-  z-index: 10;
-
-  display: block;
-  width: 76px;
-  height: 76px;
-
-  pointer-events: auto;
-}
-
-.advb-chest-lid,
-.advb-chest-body {
-  position: absolute;
-  inset: 0;
-
-  display: block;
-  width: 76px;
-  height: 76px;
-
-  image-rendering: pixelated;
-}
-
-.advb-chest-lid {
-  clip-path: inset(0 0 50% 0);
-  transform-origin: 50% 50%;
-  transition: transform .22s cubic-bezier(.34,1.56,.64,1);
-}
-
-.advb-chest-body {
-  clip-path: inset(50% 0 0 0);
-}
-
-.advb-chest:hover .advb-chest-lid {
-  transform: rotate(-26deg) translateY(-2px);
-}
-
-.advb-chest-glow {
-  position: absolute;
-  left: 50%; top: 46%;
-
-  width: 58px;
-  height: 58px;
-  margin: -29px 0 0 -29px;
-
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,222,89,.9) 0%, rgba(255,222,89,0) 70%);
-
-  opacity: 0;
-  transition: opacity .2s ease;
-  pointer-events: none;
-}
-
-.advb-chest:hover .advb-chest-glow { opacity: 1; }
-
-.advb-coin {
-  position: absolute;
-  left: 50%; top: 44%;
-
-  width: 6px;
-  height: 6px;
-  margin: -3px 0 0 -3px;
-
-  background: #FFC900;
-  box-shadow: 0 0 0 2px rgba(43,32,22,.55);
-
-  opacity: 0;
-  pointer-events: none;
-}
-
-.advb-chest:hover .advb-coin {
-  animation: advbBurst .6s ease-out forwards;
-  animation-delay: var(--d, 0s);
-}
-
-@keyframes advbBurst {
-  0%   { opacity: 0; transform: translate(0,0) scale(.4); }
-  18%  { opacity: 1; }
-  100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1); }
-}
-
-
-/* =========================================================
-   THE WALKER
-   The lynx walks the road carrying the bubble. Slow and
-   short so the link stays easy to hit, paused on hover, off
-   entirely on reduced motion.
-   ========================================================= */
-
+/* ---------- Penjelajah berjalan bolak-balik ---------- */
 .advb-walk {
   position: absolute;
-  z-index: 9;
-  bottom: 50px;
-  left: 56%;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  pointer-events: auto;
-
-  animation: advbWalk 13s ease-in-out infinite alternate;
+  right: 470px;
+  top: 178px;
+  width: 300px;
+  animation: advbWalk 26s ease-in-out infinite;
 }
-
-.advb-walk:hover { animation-play-state: paused; }
 
 @keyframes advbWalk {
-  from { transform: translateX(0); }
-  to   { transform: translateX(74px); }
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(74px); }
 }
 
-.advb-lynx {
+.advb-hero {
   display: block;
   width: 84px;
-  height: auto;
-
+  height: 112px;
+  background: url("../assets/img/adventure/explorer.svg") no-repeat 0 0;
+  background-size: 168px 112px;
   image-rendering: pixelated;
-
-  animation: advbBob .62s steps(2, end) infinite;
+  /* langkah kaki (2 frame), badan naik-turun, berbalik arah di tengah perjalanan */
+  animation:
+    advbLegs .5s steps(2) infinite,
+    advbFlip 26s step-end infinite;
 }
 
-@keyframes advbBob {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-3px); }
+@keyframes advbLegs {
+  from { background-position: 0 0; }
+  to { background-position: -168px 0; }
+}
+
+@keyframes advbFlip {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(-1); }
 }
 
 .advb-bubble {
-  position: relative;
-  display: block;
-
-  width: 202px;
+  position: absolute;
+  left: 96px;
+  top: 16px;
   padding: 12px 13px;
-
-  background: #fff;
   border: 3px solid #2b2016;
-  box-shadow: 4px 4px 0 rgba(43,32,22,.32);
-
-  color: #2b2016 !important;
-
+  background: #fff;
+  box-shadow: 4px 4px 0 0 rgba(43, 32, 22, .32);
+  color: #2b2016;
   font-family: "Courier New", monospace;
   font-size: 13px;
   line-height: 1.4;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none !important;
-
-  transition: background-color .15s ease;
+  text-decoration: none;
+  animation: advbPop .5s ease-out 1s both, advbFloat 2.4s ease-in-out 1.5s infinite alternate;
 }
 
-.advb-bubble:hover { background: #FFF4A3; }
-
-/* tail: dark diamond behind, white diamond over the border */
-.advb-bubble::before,
-.advb-bubble::after {
+/* Ekor bubble mengarah ke penjelajah */
+.advb-bubble::before {
   content: "";
   position: absolute;
-  top: 50%;
-  transform: rotate(45deg);
-}
-.advb-bubble::before {
-  left: -13px;
-  width: 20px; height: 20px;
-  margin-top: -10px;
-  background: #2b2016;
-}
-.advb-bubble::after {
-  left: -8px;
-  width: 18px; height: 18px;
-  margin-top: -9px;
-  background-color: #fff;
-}
-.advb-bubble:hover::after { background-color: #FFF4A3; }
-
-.advb-bubble i {
-  font-style: normal;
-  font-size: 17px;
-  line-height: 1;
-  margin-left: 5px;
+  left: -14px;
+  top: 18px;
+  border: 7px solid transparent;
+  border-right-color: #2b2016;
 }
 
+.advb-bubble:hover { background: #fff8d6; }
 
-/* =========================================================
-   COPY
-   ========================================================= */
+@keyframes advbPop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
+@keyframes advbFloat {
+  from { translate: 0 0; }
+  to { translate: 0 -4px; }
+}
+
+/* ---------- Peti harta: berkilau, koin meloncat saat hover ---------- */
+.advb-chest {
+  position: absolute;
+  right: 8px;
+  top: 236px;
+  width: 76px;
+  height: 56px;
+}
+
+.advb-chest-img { left: 0; top: 0; width: 76px; }
+
+.advb-chest-glow {
+  position: absolute;
+  left: -14px;
+  top: -18px;
+  width: 104px;
+  height: 90px;
+  background: radial-gradient(closest-side, rgba(255, 214, 64, .75), rgba(255, 214, 64, 0));
+  animation: advbGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes advbGlow {
+  from { opacity: .35; transform: scale(.9); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+.advb-coin {
+  position: absolute;
+  left: 35px;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  background: #ffc900;
+  box-shadow: 0 0 0 1px #c9971f;
+  opacity: 0;
+}
+
+.advb-chest:hover .advb-coin { animation: advbBurst .8s ease-out infinite; }
+
+@keyframes advbBurst {
+  0% { opacity: 0; transform: translate(0, 0) scale(.4); }
+  18% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1); }
+}
+
+/* ---------- Konten kiri dan kanan ---------- */
 .advb-inner {
   position: relative;
-  z-index: 8;
-
   display: flex;
-  align-items: flex-start;
-
-  width: 100%;
   max-width: 1750px;
-  height: 100%;
-
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 20px 8px;
+  pointer-events: none;
 }
 
-/* centred, so the leftover height sits above and below the card
-   rather than as one dead white block beneath it */
-.advb-left  { flex: 0 0 auto; min-width: 0; align-self: flex-start; margin-left: 8px; }
-.advb-right { flex: 1 1 auto; min-width: 0; padding-left: 54px; padding-top: 15px; }
+.advb-inner a { pointer-events: auto; }
 
-.advb-kicker {
-  margin: 0 0 6px;
-
-  color: #04624a;
-
-  font-size: 12px;
-  line-height: 1;
-  font-weight: 700;
-
-  letter-spacing: 2.6px;
-  text-transform: uppercase;
-}
-.advb-right .advb-kicker { color: #7a4a12; }
-
-.advb-title {
-  margin: 0;
-
-  font-size: 25px;
-  line-height: 1.08;
-  font-weight: 700;
-
-  letter-spacing: -.4px;
-}
-
-/* the wide heading is the default; the mobile block swaps them.
-   This has to sit before the media queries, not after, or it
-   outranks them on source order. */
-.advb-t-narrow { display: none; }
-
-.advb-text {
-  max-width: 400px;
-  margin: 8px 0;
-
-  color: #2f3d4a;
-
-  font-size: 14.5px;
-  line-height: 1.42;
-  font-weight: 600;
-}
-
-.advb-cta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 8px 14px;
-
-  margin-top: 0;
-}
-
-.advb-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  min-height: 38px;
-  padding: 7px 8px;
-
-  background: #04AA6D;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(22,24,29,.16);
-
-  color: #fff !important;
-
-  font-size: 15px;
-  text-decoration: none !important;
-
-  transition:
-    background-color .15s ease,
-    transform .15s ease;
-}
-
-.advb-btn:hover {
-  background: #059862;
-  transform: translateY(-1px);
-}
-
-
-/* ---- store and browser badges, all three the same SVG
-        geometry so their two text baselines cannot drift ---- */
-
-.advb-badges {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.advb-badges a { text-decoration: none; }
-
-.advb-badge {
-  display: block;
-  width: auto;
-  height: 50px;
-
-  transition:
-    opacity .15s ease,
-    transform .15s ease;
-}
-
-.advb-badges a:hover .advb-badge {
-  opacity: .84;
-  transform: translateY(-1px);
-}
-
-
-/* =========================================================
-   THE ACCOUNT CARD
-   Site type, site colours, nothing pixel. Narrow and upright
-   so the world keeps the rest of the band.
-   ========================================================= */
+.advb-left { flex: 0 0 207px; }
 
 .advb-card {
-  width: 207px;
   padding: 15px 12px 17px;
-
-  background: #fff;
   border: 1px solid #e4e4e4;
   border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(22,24,29,.10);
+  background: #fff;
+  pointer-events: auto;
 }
 
-.advb-card .advb-kicker {
-  margin-bottom: 7px;
+.advb-kicker {
+  margin: 0;
+  color: #04624a;
   font-size: 11px;
-  letter-spacing: 2.2px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.advb-card .advb-title { font-size: 19px; line-height: 1.12; }
-.advb-card .advb-cta { margin-top: 14px; }
+.advb-title {
+  margin: 2px 0 10px;
+  font-size: 19px;
+  font-weight: 700;
+}
 
 .advb-stats {
-  margin: 12px 0 0;
-
-  background: #f7f9fa;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
   border: 1px solid #e4e4e4;
   border-radius: 8px;
-
-  overflow: hidden;
+  background: #f7f9fa;
 }
 
 .advb-stat {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-
   padding: 6px 11px;
-
   color: #5b6b63;
-
-  font-family: "Segoe UI", -apple-system, Arial, sans-serif;
   font-size: 12px;
 }
 
 .advb-stat + .advb-stat { border-top: 1px solid #e8ecee; }
 
 .advb-stat b {
-  color: #16181D;
+  color: #16181d;
   font-size: 16px;
-  font-weight: 700;
 }
 
+.advb-btn {
+  display: block;
+  padding: 7px 8px;
+  border-radius: 5px;
+  background: var(--green);
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+}
 
-/* =========================================================
-   SIGNED IN
-   The account card is gone, so there is nothing on the left
-   for the world to dissolve into. Same treatment as mobile:
-   world edge to edge, flat ground colour, copy hard left.
-   ========================================================= */
+.advb-btn:hover { background: var(--green-hover); }
 
-body.w3s-user-authenticated .advb-right { padding-left: 20px; padding-top: 0; }
+.advb-right {
+  min-width: 0;
+  padding: 15px 0 0 54px;
+}
 
-/* the signpost divides the two halves, so with no card there is
-   nothing for it to divide. Tablet and mobile already drop it. */
-body.w3s-user-authenticated .advb-sign { display: none; }
+.advb-new {
+  margin: 0;
+  color: #7a4a12;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+}
 
+.advb-heading {
+  margin: 4px 0 2px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -.4px;
+}
 
-/* =========================================================
-   TABLET
-   Both halves survive, everything tightens
-   ========================================================= */
+.advb-text {
+  margin: 0 0 14px;
+  color: #2f3d4a;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.advb-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.advb-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 169px;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid #a6a6a6;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.advb-badge:hover { background: #222; }
+
+.advb-badge svg {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+}
+
+.advb-badge small {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .advb-sign { display: none; }
+}
 
 @media (max-width: 992px) {
-
-  .advb { height: 320px; }
-  .advb-inner { padding: 18px 20px; }
-
-  .advb-sign { display: none; }
-
-  .advb-right { padding-left: 34px; padding-top: 13px; }
-  body.w3s-user-authenticated .advb-right { padding-left: 22px; }
-
-  .advb-card { width: 216px; padding: 13px 14px 15px; }
-  .advb-card .advb-title { font-size: 18px; }
-  .advb-kicker { font-size: 11px; letter-spacing: 2.2px; }
-  .advb-text { font-size: 13px; max-width: 250px; }
-
-  .advb-badge { height: 34px; }
-  .advb-badges { gap: 10px; }
-
-  .advb-walk { left: 46%; bottom: 46px; }
-  .advb-lynx { width: 74px; }
-  .advb-bubble { width: 178px; font-size: 12px; }
+  .advb-left { display: none; }
+  .advb-right { padding-left: 16px; }
+  .advb-props .advb-prop:nth-child(-n+5) { display: none; }
+  .advb-walk { top: 186px; }
 }
 
-
-@media (min-width: 601px) and (max-width: 768px) {
-
-  .advb-badge-browser { display: none; }
-  .advb-walk { bottom: 42px; }
-  .advb-right .advb-title { font-size: 20px; }
-
+/* Layar HP: teks di atas, panggung di bawah */
+@media (max-width: 700px) {
+  .advb-cloud { display: none; }
+  .advb { min-height: 470px; }
+  .advb-right { padding: 8px 8px 0; }
+  .advb-heading { font-size: 22px; }
+  .advb-badge { width: 160px; }
+  .advb-field { top: auto; height: 170px; }
+  .advb-road { top: auto; bottom: 46px; }
+  .advb-stage { left: 0; right: 0; width: auto; }
+  .advb-props { display: none; }
+  .advb-walk { right: auto; left: 8px; top: auto; bottom: 50px; }
+  .advb-chest { top: auto; bottom: 56px; }
 }
-
-
-/* =========================================================
-   MOBILE
-   The account offer goes, so the heading becomes the app's
-   own name and the world fills the full width with nothing
-   left to dissolve into.
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-  .advb {
-    height: auto;
-    min-height: 330px;
-    background: var(--far);
-  }
-
-  .advb-inner {
-    display: block;
-    padding: 22px 20px 176px;
-  }
-
-  .advb-left,
-  body.w3s-user-anonymous .advb .advb-left { display: none !important; }
-  .advb-right { padding-left: 0; }
-  body.w3s-user-authenticated .advb-right { padding-left: 0; }
-  .advb-right .advb-text { max-width: 100%; font-size: 14px; }
-
-  .advb-t-wide { display: none; }
-  .advb-t-narrow { display: inline; }
-  .advb-title { font-size: 26px; }
-  .advb-kicker { font-size: 11.5px; }
-
-  /* on a phone the browser CTA is beside the point */
-  .advb-badge-browser { display: none; }
-
-  /* the tall birch runs into the heading at this width */
-  .advb-prop.-tall { display: none; }
-
-  .advb-walk { left: 16px; bottom: 60px; }
-  .advb-lynx { width: 78px; }
-  .advb-bubble { width: 188px; font-size: 12.5px; }
-
-  @keyframes advbWalk {
-    from { transform: translateX(0); }
-    to   { transform: translateX(44px); }
-  }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .advb-walk,
-  .advb-lynx { animation: none !important; }
-
-  .advb-chest-lid { transition: none; }
-  .advb-coin { display: none; }
-
-}
-
