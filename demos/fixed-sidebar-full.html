@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Sidebar: Full</title>
+  <style>
+    body {
+      margin: 8px;
+      font-family: "Lato", Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    /* Sidebar selebar 110px, setinggi layar, tetap di tempat saat discroll */
+    .sidenav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 110px;
+      height: 100%;
+      padding-top: 20px;
+      overflow-x: hidden;
+      background-color: #111;
+      z-index: 1;
+    }
+
+    .sidenav a {
+      display: block;
+      padding: 6px 8px 6px 16px;
+      color: #818181;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    .sidenav a:hover { color: #f1f1f1; }
+
+    .main { margin-left: 117px; }
+
+    h2 { margin: 12px 0; font-size: 20px; }
+  </style>
+</head>
+<body>
+
+  <div class="sidenav">
+    <a href="#!">About</a>
+    <a href="#!">Services</a>
+    <a href="#!">Clients</a>
+    <a href="#!">Contact</a>
+  </div>
+
+  <div class="main">
+    <h2>Full Sidebar</h2>
+    <p>This sidebar is of full height (100%) and always shown.</p>
+    <p>Scroll this window to see the "fixed" effect.</p>
+    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae magna sed nunc posuere blandit. Integer vel ligula nec massa tristique tempus. Curabitur sit amet lectus at lorem feugiat aliquet, in porta tellus volutpat quis.</p>
+    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae magna sed nunc posuere blandit. Integer vel ligula nec massa tristique tempus. Curabitur sit amet lectus at lorem feugiat aliquet, in porta tellus volutpat quis.</p>
+    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae magna sed nunc posuere blandit. Integer vel ligula nec massa tristique tempus. Curabitur sit amet lectus at lorem feugiat aliquet, in porta tellus volutpat quis.</p>
+    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae magna sed nunc posuere blandit. Integer vel ligula nec massa tristique tempus. Curabitur sit amet lectus at lorem feugiat aliquet, in porta tellus volutpat quis.</p>
+  </div>
+
+</body>
+</html>
