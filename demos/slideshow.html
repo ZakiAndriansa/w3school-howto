@@ -28,11 +28,11 @@
       position: relative;
     }
 
-    /* Gambar mengisi tinggi iframe dikurangi area titik (39px) */
+    /* Gambar mengisi tinggi iframe dikurangi area titik (48px) */
     .slide img {
       display: block;
       width: 100%;
-      height: calc(100vh - 39px);
+      height: calc(100vh - 48px);
       object-fit: cover;
     }
 
@@ -88,12 +88,13 @@
     .prev:hover,
     .next:hover { background-color: rgba(0, 0, 0, .8); }
 
-    /* Titik navigasi */
+    /* Titik navigasi: seperti asli, satu baris kosong (24px) lalu baris titik (24px) */
     .dots {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 39px;
+      height: 48px;
+      padding-top: 24px;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
     }
 
     .dot {

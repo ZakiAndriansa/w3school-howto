@@ -381,7 +381,8 @@ aside#right {
   margin: 0 auto 24px;
   padding: 0.01em 16px;
   font-family: Verdana, sans-serif;
-  font-size: 16px;
+  font-size: 16px;    /* sama seperti asli: 16px, line-height 24px */
+  line-height: 1.5;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -408,8 +409,24 @@ aside#right {
 }
 
 /* Teks keterangan di atas iframe */
+/* Paragraf di kartu: margin asli 1.2em (19.2px); h2 sudah punya jarak 10px di bawahnya */
 .howto-note {
-  margin: 0 0 16px;
+  margin: 9.2px 0 19.2px;
+}
+
+/* Iframe yang di situs asli berupa elemen inline: ada celah kecil di bawahnya (garis dasar teks) */
+.howto-iframe-inline {
+  display: inline;
+  vertical-align: baseline;
+}
+
+/* Vertical Tabs: asli digeser 8px ke kiri */
+.frame-vertical-tabs { margin-left: -8px; }
+
+/* Change Background on Scroll: iframe 500px dengan bingkai abu tipis seperti asli */
+.frame-change-bg {
+  height: 500px;
+  border: 2px solid #f1f1f1;
 }
 
 /* Dua iframe berdampingan (Fixed Sidebar) */
@@ -417,6 +434,7 @@ aside#right {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  margin-bottom: 22px;  /* asli: iframe inline (celah 6px) + margin 16px */
 }
 
 .howto-frame-bordered {
@@ -440,6 +458,7 @@ aside#right {
   color: #fff;
   font-family: var(--font);
   font-size: 17px;
+  font-weight: 600;  /* situs asli hanya memuat Source Sans Pro tebal 600, jadi tombolnya tampil semi-tebal */
   line-height: 25.5px;
   border-radius: 5px;
   text-decoration: none;
@@ -456,22 +475,18 @@ aside#right {
    1. cqw = 1% lebar isi kartu (dipakai demo yang tingginya ikut lebar gambar)
    2. @container (max-width: ...) = aturan berdasarkan lebar kartu, bukan lebar layar
       (dipakai demo yang teks/tombolnya turun baris saat kartu sempit)
-   Demo popup diberi tinggi pas untuk popup saat terbuka.
    ========================================================= */
 .w3-card-4 { container-type: inline-size; }
 
-/* --- Tinggi tetap --- */
-.frame-login-form { height: 348px; }       /* popup login saat terbuka */
-.frame-hover-dropdown { height: 166px; }   /* tombol + 3 link dropdown */
-.frame-click-dropdown { height: 172px; }
-.frame-side-nav { height: 244px; }         /* panel samping: 4 link */
-.frame-fullscreen-nav { height: 245px; }   /* overlay: 4 link di tengah */
+/* Kartu berisi demo popup tanpa iframe (css/howto-inline.css) TIDAK boleh jadi container:
+   container membuat position: fixed terkurung di dalam kartu, popup jadi tidak menutupi layar */
+.w3-card-4:has(.hd) { container-type: normal; }
 
 /* --- Tinggi ikut lebar gambar (rasio gambar sama seperti asli) --- */
-/* Slideshow: gambar 1000:350 + area titik 39px */
+/* Slideshow: gambar 1000:350 + area titik 48px */
 .frame-slideshow {
   height: 380px;
-  height: calc(100cqw * 0.35 + 39px);
+  height: calc(100cqw * 0.35 + 48px);
 }
 
 /* Modal Image: gambar 50% lebar dengan rasio 3:2, jadi tingginya 1/3 lebar kartu */
@@ -489,10 +504,10 @@ aside#right {
   height: calc((100cqw - 16px) * 2 / 9);
 }
 
-/* Slideshow Gallery: gambar 1000:350 + caption 52px + 6 thumbnail 3:2 (tinggi = lebar / 9) */
+/* Slideshow Gallery: gambar 1000:350 + caption 58px + 6 thumbnail 3:2 (tinggi = lebar / 9) */
 .frame-slideshow-gallery {
   height: 480px;
-  height: calc(100cqw * 0.35 + 100cqw / 9 + 52px);
+  height: calc(100cqw * 0.35 + 100cqw / 9 + 58px);
 }
 
 /* Image Hover Overlay: avatar persegi, maksimal 400px */
@@ -511,50 +526,46 @@ aside#right {
 }
 
 /* --- Tinggi bertingkat: isi turun baris saat kartu sempit --- */
-.frame-accordion { height: 250px; }      /* 3 tombol + 1 bagian terbuka */
-@container (max-width: 643px) { .frame-accordion { height: 268px; } }
-@container (max-width: 491px) { .frame-accordion { height: 286px; } }
-@container (max-width: 411px) { .frame-accordion { height: 304px; } }
-@container (max-width: 343px) { .frame-accordion { height: 322px; } }
-@container (max-width: 311px) { .frame-accordion { height: 340px; } }
-@container (max-width: 281px) { .frame-accordion { height: 358px; } }
-@container (max-width: 251px) { .frame-accordion { height: 376px; } }
-@container (max-width: 237px) { .frame-accordion { height: 394px; } }
-@container (max-width: 221px) { .frame-accordion { height: 412px; } }
+.frame-accordion { height: 286px; }      /* 3 tombol + 1 bagian terbuka */
+@container (max-width: 684px) { .frame-accordion { height: 310px; } }
+@container (max-width: 520px) { .frame-accordion { height: 334px; } }
+@container (max-width: 434px) { .frame-accordion { height: 358px; } }
+@container (max-width: 362px) { .frame-accordion { height: 382px; } }
+@container (max-width: 328px) { .frame-accordion { height: 406px; } }
+@container (max-width: 298px) { .frame-accordion { height: 430px; } }
+@container (max-width: 264px) { .frame-accordion { height: 454px; } }
+@container (max-width: 250px) { .frame-accordion { height: 478px; } }
+@container (max-width: 232px) { .frame-accordion { height: 502px; } }
+@container (max-width: 208px) { .frame-accordion { height: 526px; } }
+@container (max-width: 206px) { .frame-accordion { height: 550px; } }
 
-.frame-modal-box { height: 282px; }        /* popup Modal Box saat terbuka */
-@container (max-width: 390px) { .frame-modal-box { height: 301px; } }
-@container (max-width: 280px) { .frame-modal-box { height: 344px; } }
-@container (max-width: 250px) { .frame-modal-box { height: 382px; } }
-
-.frame-tabs { height: 156px; }
-@container (max-width: 330px) { .frame-tabs { height: 175px; } }
+.frame-tabs { height: 177px; }
+@container (max-width: 322px) { .frame-tabs { height: 201px; } }
 
 .frame-vertical-tabs { height: 350px; }
 @container (max-width: 340px) { .frame-vertical-tabs { height: 368px; } }
 
-.frame-alert-buttons { height: 55px; }
-@container (max-width: 610px) { .frame-alert-buttons { height: 110px; } }
-@container (max-width: 360px) { .frame-alert-buttons { height: 165px; } }
-@container (max-width: 250px) { .frame-alert-buttons { height: 220px; } }
-@container (max-width: 220px) { .frame-alert-buttons { height: 275px; } }
+.frame-alert-buttons { height: 60px; }
+@container (max-width: 600px) { .frame-alert-buttons { height: 120px; } }
+@container (max-width: 352px) { .frame-alert-buttons { height: 180px; } }
+@container (max-width: 240px) { .frame-alert-buttons { height: 240px; } }
+@container (max-width: 220px) { .frame-alert-buttons { height: 300px; } }
 
-.frame-outline-buttons { height: 59px; }
-@container (max-width: 630px) { .frame-outline-buttons { height: 118px; } }
-@container (max-width: 380px) { .frame-outline-buttons { height: 177px; } }
-@container (max-width: 260px) { .frame-outline-buttons { height: 236px; } }
-@container (max-width: 220px) { .frame-outline-buttons { height: 295px; } }
+.frame-outline-buttons { height: 64px; }
+@container (max-width: 620px) { .frame-outline-buttons { height: 128px; } }
+@container (max-width: 364px) { .frame-outline-buttons { height: 192px; } }
+@container (max-width: 248px) { .frame-outline-buttons { height: 256px; } }
+@container (max-width: 228px) { .frame-outline-buttons { height: 320px; } }
 
 .frame-top-nav { height: 56px; }
-@container (max-width: 260px) { .frame-top-nav { height: 112px; } }
+@container (max-width: 246px) { .frame-top-nav { height: 112px; } }
 
-/* Responsive Top Navigation: di kartu <= 400px muncul hamburger, menu terbuka butuh 208px */
-.frame-responsive-top-nav { height: 52px; }
-@container (max-width: 400px) { .frame-responsive-top-nav { height: 208px; } }
+/* Responsive Top Navigation: iframe 215px, sama seperti situs asli (ruang untuk menu hamburger) */
+.frame-responsive-top-nav { height: 215px; }
 
 /* Login Form in Navbar: di kartu <= 600px item bertumpuk */
-.frame-login-navbar { height: 49px; }
-@container (max-width: 600px) { .frame-login-navbar { height: 298px; } }
+.frame-login-navbar { height: 54px; }
+@container (max-width: 600px) { .frame-login-navbar { height: 312px; } }
 
 /* ---------- Responsive Akhir ---------- */
 /* <= 992px: sidebar berubah jadi drawer (lihat bagian 8), kolom iklan kanan pindah ke bawah konten */
