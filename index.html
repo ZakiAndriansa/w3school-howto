@@ -653,13 +653,77 @@
 
         <div class="w3-card-4">
           <h2>Modal Image</h2>
-          <iframe class="howto-iframe frame-modal-image" src="demos/modal-image.html" title="Modal Image" loading="lazy"></iframe>
+          <!-- Tanpa iframe: gambar besar menutupi seluruh halaman (:target) -->
+          <div class="hd">
+            <a href="#hd-modalimg" class="hd-modalimg-thumb"><img src="assets/img/demos/snow.jpg" alt="Snow"></a>
+            <div id="hd-modalimg" class="hd-imgmodal">
+              <a href="#!" class="hd-modal-bg" aria-label="Close"></a>
+              <a href="#!" class="hd-imgmodal-close" title="Close">&times;</a>
+              <img class="hd-imgmodal-img" src="assets/img/demos/snow.jpg" alt="Snow">
+              <div class="hd-imgmodal-caption">Snow</div>
+            </div>
+          </div>
           <p class="howto-container"><a href="#!" class="howto-link">Learn How To &raquo;</a></p>
         </div>
 
         <div class="w3-card-4">
           <h2>Lightbox</h2>
-          <iframe class="howto-iframe frame-lightbox" src="demos/lightbox.html" title="Lightbox" loading="lazy"></iframe>
+          <!-- Tanpa iframe: lightbox hitam layar penuh, satu popup per gambar (:target) -->
+          <div class="hd">
+            <div class="hd-lb-row">
+              <a href="#hd-lb1"><img src="assets/img/demos/nature.jpg" alt="Nature and sunrise"></a>
+              <a href="#hd-lb2"><img src="assets/img/demos/snow.jpg" alt="Snow"></a>
+              <a href="#hd-lb3"><img src="assets/img/demos/mountains.jpg" alt="Mountains and fjords"></a>
+            </div>
+            <div id="hd-lb1" class="hd-lightbox">
+              <a href="#!" class="hd-lb-close" title="Close">&times;</a>
+              <div class="hd-lb-content">
+                <img src="assets/img/demos/nature-wide.jpg" alt="Nature and sunrise">
+                <div class="hd-lb-caption">
+                  <p>Nature and sunrise</p>
+                  <a href="#hd-lb3" class="hd-lb-prev">&#10094;</a>
+                  <a href="#hd-lb2" class="hd-lb-next">&#10095;</a>
+                </div>
+                <div class="hd-lb-thumbs">
+                  <a href="#hd-lb1" class="active"><img src="assets/img/demos/nature-wide.jpg" alt="Nature and sunrise"></a>
+                  <a href="#hd-lb2"><img src="assets/img/demos/snow-wide.jpg" alt="Snow"></a>
+                  <a href="#hd-lb3"><img src="assets/img/demos/mountains-wide.jpg" alt="Mountains and fjords"></a>
+                </div>
+              </div>
+            </div>
+            <div id="hd-lb2" class="hd-lightbox">
+              <a href="#!" class="hd-lb-close" title="Close">&times;</a>
+              <div class="hd-lb-content">
+                <img src="assets/img/demos/snow-wide.jpg" alt="Snow">
+                <div class="hd-lb-caption">
+                  <p>Snow</p>
+                  <a href="#hd-lb1" class="hd-lb-prev">&#10094;</a>
+                  <a href="#hd-lb3" class="hd-lb-next">&#10095;</a>
+                </div>
+                <div class="hd-lb-thumbs">
+                  <a href="#hd-lb1"><img src="assets/img/demos/nature-wide.jpg" alt="Nature and sunrise"></a>
+                  <a href="#hd-lb2" class="active"><img src="assets/img/demos/snow-wide.jpg" alt="Snow"></a>
+                  <a href="#hd-lb3"><img src="assets/img/demos/mountains-wide.jpg" alt="Mountains and fjords"></a>
+                </div>
+              </div>
+            </div>
+            <div id="hd-lb3" class="hd-lightbox">
+              <a href="#!" class="hd-lb-close" title="Close">&times;</a>
+              <div class="hd-lb-content">
+                <img src="assets/img/demos/mountains-wide.jpg" alt="Mountains and fjords">
+                <div class="hd-lb-caption">
+                  <p>Mountains and fjords</p>
+                  <a href="#hd-lb2" class="hd-lb-prev">&#10094;</a>
+                  <a href="#hd-lb1" class="hd-lb-next">&#10095;</a>
+                </div>
+                <div class="hd-lb-thumbs">
+                  <a href="#hd-lb1"><img src="assets/img/demos/nature-wide.jpg" alt="Nature and sunrise"></a>
+                  <a href="#hd-lb2"><img src="assets/img/demos/snow-wide.jpg" alt="Snow"></a>
+                  <a href="#hd-lb3" class="active"><img src="assets/img/demos/mountains-wide.jpg" alt="Mountains and fjords"></a>
+                </div>
+              </div>
+            </div>
+          </div>
           <p class="howto-container"><a href="#!" class="howto-link">Learn How To &raquo;</a></p>
         </div>
 

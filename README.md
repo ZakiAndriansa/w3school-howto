@@ -6,7 +6,7 @@ Tugas mata kuliah Pemrograman Web: meniru tampilan https://www.w3schools.com/how
 | Peran | Nama | Bagian |
 |---|---|---|
 | Anggota A | _(isi nama)_ | Layout: top nav, sidebar, iklan, footer, responsive |
-| Anggota B | Zaki Andriansa | 22 kartu demo (16 iframe + 6 popup inline), Learn in Adventure Mode |
+| Anggota B | Zaki Andriansa | 22 kartu demo (14 iframe + 8 popup inline), Learn in Adventure Mode |
 
 ## Dokumen
 1. [PLAN.md](PLAN.md): rencana lengkap, pembagian tugas, alur GitHub.
