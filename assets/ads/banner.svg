@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 728 90" width="728" height="90">
+  <rect width="728" height="90" rx="8" fill="#282A35"/>
+  <rect x="20" y="15" width="60" height="60" rx="8" fill="#04AA6D"/>
+  <text x="50" y="52" text-anchor="middle" font-family="Verdana,sans-serif" font-size="24" font-weight="700" fill="#fff">W3</text>
+  <text x="110" y="35" font-family="Verdana,sans-serif" font-size="18" font-weight="600" fill="#FFF4A3">Learn to Code</text>
+  <text x="110" y="58" font-family="Verdana,sans-serif" font-size="13" fill="#ccc">With the world's largest web development site.</text>
+  <rect x="560" y="25" width="140" height="40" rx="20" fill="#04AA6D"/>
+  <text x="630" y="51" text-anchor="middle" font-family="Verdana,sans-serif" font-size="14" font-weight="600" fill="#fff">Get Started ›</text>
+</svg>
