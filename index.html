@@ -12,15 +12,286 @@
 </head>
 <body>
 
-  <!-- ===== TOP NAV (Anggota A, branch feat/topnav) ===== -->
+  <!-- =========================================================
+       1. TOP NAVIGATION BAR (Anggota A, feat/topnav)
+       ========================================================= -->
   <header id="top-nav-bar">
-    <!-- logo, menu Tutorials/References/Exercises/Certificates, search, tombol kanan -->
+    <div class="tnb-left">
+      <!-- Logo W3Schools -->
+      <a href="#!" class="tnb-logo" title="W3Schools Home">
+        <img src="assets/img/logo.svg" alt="W3Schools" width="38" height="36" class="tnb-logo-img">
+      </a>
+
+      <!-- Menu Dropdowns (Checkbox Hack) -->
+      <nav class="tnb-menu">
+        <!-- 1. Tutorials -->
+        <div class="tnb-menu-item">
+          <input type="checkbox" id="m-tut" class="tnb-check" hidden>
+          <label for="m-tut" class="tnb-menu-btn">
+            <span class="tnb-menu-text">Tutorials</span>
+            <span class="tnb-caret">▾</span>
+          </label>
+          <label for="m-tut" class="tnb-backdrop"></label>
+          <div class="tnb-panel tnb-panel-tut">
+            <div class="tnb-panel-header">
+              <h2>Tutorials</h2>
+              <label for="m-tut" class="tnb-panel-close" title="Close Panel">✕</label>
+            </div>
+            <div class="tnb-featured-card">
+              <div>
+                <div class="tnb-featured-title">How To Tutorials</div>
+                <p class="tnb-featured-desc">All code snippets for HTML, CSS and JavaScript.</p>
+              </div>
+              <a href="#!" class="tnb-featured-btn">Learn How To ›</a>
+            </div>
+            <div class="tnb-panel-grid">
+              <div class="tnb-panel-col">
+                <h3>HTML &amp; CSS</h3>
+                <a href="#!">Learn HTML</a>
+                <a href="#!">Learn CSS</a>
+                <a href="#!">Learn RWD</a>
+                <a href="#!">Learn Bootstrap</a>
+                <a href="#!">Learn W3.CSS</a>
+                <a href="#!">Learn Colors</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>JavaScript</h3>
+                <a href="#!">Learn JavaScript</a>
+                <a href="#!">Learn React</a>
+                <a href="#!">Learn jQuery</a>
+                <a href="#!">Learn Vue.js</a>
+                <a href="#!">Learn AngularJS</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>Server Side</h3>
+                <a href="#!">Learn Python</a>
+                <a href="#!">Learn SQL</a>
+                <a href="#!">Learn PHP</a>
+                <a href="#!">Learn Java</a>
+                <a href="#!">Learn C++</a>
+                <a href="#!">Learn Node.js</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>Data Science</h3>
+                <a href="#!">Learn AI</a>
+                <a href="#!">Learn Machine Learning</a>
+                <a href="#!">Learn Data Science</a>
+                <a href="#!">Learn NumPy</a>
+                <a href="#!">Learn Pandas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. References -->
+        <div class="tnb-menu-item">
+          <input type="checkbox" id="m-ref" class="tnb-check" hidden>
+          <label for="m-ref" class="tnb-menu-btn">
+            <span class="tnb-menu-text">References</span>
+            <span class="tnb-caret">▾</span>
+          </label>
+          <label for="m-ref" class="tnb-backdrop"></label>
+          <div class="tnb-panel tnb-panel-ref">
+            <div class="tnb-panel-header">
+              <h2>References</h2>
+              <label for="m-ref" class="tnb-panel-close" title="Close Panel">✕</label>
+            </div>
+            <div class="tnb-panel-grid">
+              <div class="tnb-panel-col">
+                <h3>HTML</h3>
+                <a href="#!">HTML Tag Reference</a>
+                <a href="#!">HTML Attributes</a>
+                <a href="#!">HTML Browser Support</a>
+                <a href="#!">HTML Colors</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>CSS</h3>
+                <a href="#!">CSS Reference</a>
+                <a href="#!">CSS Selectors</a>
+                <a href="#!">CSS Properties</a>
+                <a href="#!">CSS Browser Support</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>JavaScript</h3>
+                <a href="#!">JavaScript Reference</a>
+                <a href="#!">HTML DOM Reference</a>
+                <a href="#!">JS Objects Reference</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>Programming</h3>
+                <a href="#!">Python Reference</a>
+                <a href="#!">SQL Reference</a>
+                <a href="#!">Java Reference</a>
+                <a href="#!">PHP Reference</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Exercises -->
+        <div class="tnb-menu-item">
+          <input type="checkbox" id="m-exe" class="tnb-check" hidden>
+          <label for="m-exe" class="tnb-menu-btn">
+            <span class="tnb-menu-text">Exercises</span>
+            <span class="tnb-caret">▾</span>
+          </label>
+          <label for="m-exe" class="tnb-backdrop"></label>
+          <div class="tnb-panel tnb-panel-exe">
+            <div class="tnb-panel-header">
+              <h2>Exercises</h2>
+              <label for="m-exe" class="tnb-panel-close" title="Close Panel">✕</label>
+            </div>
+            <div class="tnb-panel-grid">
+              <div class="tnb-panel-col">
+                <h3>Exercises</h3>
+                <a href="#!">HTML Exercises</a>
+                <a href="#!">CSS Exercises</a>
+                <a href="#!">JavaScript Exercises</a>
+                <a href="#!">SQL Exercises</a>
+                <a href="#!">Python Exercises</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>Quizzes</h3>
+                <a href="#!">HTML Quiz</a>
+                <a href="#!">CSS Quiz</a>
+                <a href="#!">JavaScript Quiz</a>
+                <a href="#!">SQL Quiz</a>
+                <a href="#!">Python Quiz</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>Challenges</h3>
+                <a href="#!">Front End Challenge</a>
+                <a href="#!">JavaScript Coding</a>
+                <a href="#!">Python Coding</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Certificates -->
+        <div class="tnb-menu-item">
+          <input type="checkbox" id="m-cert" class="tnb-check" hidden>
+          <label for="m-cert" class="tnb-menu-btn">
+            <span class="tnb-menu-text">Certificates</span>
+            <span class="tnb-caret">▾</span>
+          </label>
+          <label for="m-cert" class="tnb-backdrop"></label>
+          <div class="tnb-panel tnb-panel-cert">
+            <div class="tnb-panel-header">
+              <h2>Certificates</h2>
+              <label for="m-cert" class="tnb-panel-close" title="Close Panel">✕</label>
+            </div>
+            <div class="tnb-panel-grid">
+              <div class="tnb-panel-col">
+                <h3>Certified Programs</h3>
+                <a href="#!">HTML Certificate</a>
+                <a href="#!">CSS Certificate</a>
+                <a href="#!">JavaScript Certificate</a>
+                <a href="#!">Front End Certificate</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>Backend Certifications</h3>
+                <a href="#!">Python Certificate</a>
+                <a href="#!">SQL Certificate</a>
+                <a href="#!">PHP Certificate</a>
+                <a href="#!">Java Certificate</a>
+              </div>
+              <div class="tnb-panel-col">
+                <h3>Full Access</h3>
+                <a href="#!">Get Certified Overview</a>
+                <a href="#!">Course Catalog</a>
+                <a href="#!">Bootcamps</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Search Form -->
+    <form class="tnb-search" action="#!" method="get">
+      <input type="text" placeholder="Search..." aria-label="Search">
+      <button type="button" aria-label="Submit Search">
+        <svg viewBox="0 0 17 16" width="16" height="16" fill="currentColor">
+          <path d="M11.8153 10.3439C12.6061 9.2673 13.0732 7.9382 13.0732 6.5C13.0732 2.91015 10.163 0 6.57318 0C2.98333 0 0.0731812 2.91015 0.0731812 6.5C0.0731812 10.0899 2.98333 13 6.57318 13C8.01176 13 9.3412 12.5327 10.4179 11.7415L10.4171 11.7422C10.4466 11.7822 10.4794 11.8204 10.5156 11.8566L14.3661 15.7071C14.7566 16.0976 15.3898 16.0976 15.7803 15.7071C16.1708 15.3166 16.1708 14.6834 15.7803 14.2929L11.9298 10.4424C11.8936 10.4062 11.8553 10.3734 11.8153 10.3439ZM12.0732 6.5C12.0732 9.53757 9.61075 12 6.57318 12C3.53561 12 1.07318 9.53757 1.07318 6.5C1.07318 3.46243 3.53561 1 6.57318 1C9.61075 1 12.0732 3.46243 12.0732 6.5Z"/>
+        </svg>
+      </button>
+    </form>
+
+    <label class="tnb-more" title="More Options">⋮</label>
+
+    <!-- Tombol Sisi Kanan -->
+    <div class="tnb-right">
+      <a href="#!" class="tnb-right-link">Spaces</a>
+      <a href="#!" class="tnb-right-link">Upgrade</a>
+      <a href="#!" class="tnb-right-link tnb-app-link" title="W3Schools App">
+        <span class="badge-new">NEW</span>
+        <span class="tnb-app-title">App</span>
+      </a>
+      <a href="#!" class="btn-paid">Paid Courses</a>
+      <a href="#!" class="btn-signin">Sign In</a>
+    </div>
   </header>
 
-  <!-- ===== BAR TOPIK (Anggota A, branch feat/topnav) ===== -->
-  <nav id="subtopnav">
-    <!-- HTML CSS JAVASCRIPT ... HOW TO (active) ... NODEJS -->
-  </nav>
+  <!-- =========================================================
+       2. BAR TOPIK HORIZONTAL (Anggota A, feat/topnav)
+       ========================================================= -->
+  <div class="subnav-wrapper">
+    <nav id="subtopnav">
+      <a href="#!">HTML</a>
+      <a href="#!">CSS</a>
+      <a href="#!">JAVASCRIPT</a>
+      <a href="#!">SQL</a>
+      <a href="#!">PYTHON</a>
+      <a href="#!">JAVA</a>
+      <a href="#!">PHP</a>
+      <a href="#!">C</a>
+      <a href="#!">C++</a>
+      <a href="#!">C#</a>
+      <a href="#!">AWS</a>
+      <a href="#!">W3.CSS</a>
+      <a href="#!" class="active">HOW TO</a>
+      <a href="#!">BOOTSTRAP</a>
+      <a href="#!">REACT</a>
+      <a href="#!">MYSQL</a>
+      <a href="#!">JQUERY</a>
+      <a href="#!">EXCEL</a>
+      <a href="#!">XML</a>
+      <a href="#!">DJANGO</a>
+      <a href="#!">NUMPY</a>
+      <a href="#!">PANDAS</a>
+      <a href="#!">NODEJS</a>
+      <a href="#!">DSA</a>
+      <a href="#!">TYPESCRIPT</a>
+      <a href="#!">ANGULAR</a>
+      <a href="#!">ANGULARJS</a>
+      <a href="#!">GIT</a>
+      <a href="#!">POSTGRESQL</a>
+      <a href="#!">MONGODB</a>
+      <a href="#!">ASP</a>
+      <a href="#!">AI</a>
+      <a href="#!">R</a>
+      <a href="#!">GO</a>
+      <a href="#!">KOTLIN</a>
+      <a href="#!">SWIFT</a>
+      <a href="#!">SASS</a>
+      <a href="#!">VUE</a>
+      <a href="#!">GEN AI</a>
+      <a href="#!">SCIPY</a>
+      <a href="#!">CYBERSECURITY</a>
+      <a href="#!">DATA SCIENCE</a>
+      <a href="#!">INTRO TO PROGRAMMING</a>
+      <a href="#!">INTRO TO HTML &amp; CSS</a>
+      <a href="#!">BASH</a>
+      <a href="#!">RUST</a>
+      <a href="#!" id="subnav-end">TOOLS</a>
+    </nav>
+    <a href="#subnav-end" class="subnav-scroll-btn" title="Scroll right" aria-label="Next">
+      <svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.5 1.5L6.5 7.5L1.5 13.5" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
 
   <div class="layout">
 
