@@ -964,6 +964,76 @@ header#top-nav-bar {
   color: #ffffff;
 }
 
+/* Logo tidak boleh ikut mengecil saat header sempit */
+.tnb-logo {
+  flex-shrink: 0;
+}
+
+/* ---------- Top Nav Responsif (meniru pola W3Schools asli) ---------- */
+/* <= 1200px: Spaces, Upgrade, Paid Courses disembunyikan */
+@media (max-width: 1200px) {
+  .tnb-right-link:not(.tnb-app-link),
+  .btn-paid {
+    display: none;
+  }
+}
+
+/* <= 992px: menu References dan Certificates disembunyikan */
+@media (max-width: 992px) {
+  .tnb-menu-item:nth-child(2),
+  .tnb-menu-item:nth-child(4) {
+    display: none;
+  }
+}
+
+/* <= 600px: menu jadi ikon ☰ (membuka panel Tutorials), search jadi ikon saja */
+@media (max-width: 600px) {
+  header#top-nav-bar {
+    padding: 0 8px 0 6px;
+  }
+
+  .tnb-menu-item:nth-child(3),
+  .tnb-more {
+    display: none;
+  }
+
+  .tnb-menu-item:first-child .tnb-menu-text,
+  .tnb-menu-item:first-child .tnb-caret {
+    display: none;
+  }
+
+  .tnb-menu-item:first-child .tnb-menu-btn::before {
+    content: "☰";
+    font-size: 22px;
+  }
+
+  .tnb-menu-btn {
+    padding: 0 12px;
+  }
+
+  .tnb-search {
+    padding: 0;
+  }
+
+  .tnb-search input {
+    display: none;
+  }
+
+  .tnb-search button {
+    position: static;
+    transform: none;
+  }
+
+  .tnb-app-link {
+    padding: 0 8px;
+  }
+
+  .btn-signin {
+    margin-left: 6px;
+    padding: 0 14px;
+  }
+}
+
 /* =========================================================
    6. SUBTOPNAV (BAR TOPIK HORIZONTAL & ARROW SIDE SCROLL)
    ========================================================= */
