@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modal Image</title>
   <style>
+    /* Tinggi iframe pas dengan gambar, jadi tidak perlu scrollbar */
+    html { overflow: hidden; }
+
     body {
       margin: 0;
       font-family: Verdana, sans-serif;
@@ -27,8 +30,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      padding-top: 30px;
-      overflow: auto;
+      padding-top: 10px;
       background-color: rgba(0, 0, 0, .9);
       z-index: 999;
     }
@@ -45,12 +47,12 @@
     }
 
     .modal-content {
-      max-height: calc(100vh - 100px);
+      max-height: calc(100vh - 50px);
       object-fit: contain;
     }
 
     .caption {
-      padding: 10px 0;
+      padding: 6px 0;
       color: #ccc;
       text-align: center;
     }
@@ -62,10 +64,10 @@
 
     .close {
       position: absolute;
-      top: 10px;
-      right: 35px;
+      top: 0;
+      right: 16px;
       color: #f1f1f1;
-      font-size: 40px;
+      font-size: 36px;
       font-weight: bold;
       text-decoration: none;
       transition: .3s;
