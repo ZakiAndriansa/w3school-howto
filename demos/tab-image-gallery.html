@@ -7,6 +7,9 @@
   <style>
     * { box-sizing: border-box; }
 
+    /* Tinggi iframe pas dengan isi; cegah scrollbar karena pembulatan 1px */
+    html { overflow: hidden; }
+
     body {
       margin: 0;
       font-family: Verdana, sans-serif;
@@ -37,12 +40,12 @@
     .picture {
       display: none;
       position: relative;
-      margin-top: 16px;
+      margin: 16px 8px 0;  /* iframe melebar 8px kiri-kanan, gambar besar tetap selebar kartu */
       color: #fff;
     }
 
     .picture img {
-      aspect-ratio: 968 / 339;
+      aspect-ratio: 1000 / 350;
       object-fit: cover;
     }
 

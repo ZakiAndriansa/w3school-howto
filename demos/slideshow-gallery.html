@@ -24,11 +24,8 @@
       position: relative;
     }
 
-    /* Tinggi gambar = tinggi iframe dikurangi caption (52px) dan thumbnail (90px) */
-    .slide img {
-      height: calc(100vh - 142px);
-      object-fit: cover;
-    }
+    /* Gambar lebar 1000:350, sama seperti situs asli */
+    .slide img { aspect-ratio: 1000 / 350; }
 
     #g1:checked ~ .slides .slide-1,
     #g2:checked ~ .slides .slide-2,
@@ -82,7 +79,7 @@
     .thumbs label { cursor: pointer; }
 
     .thumbs img {
-      height: 90px;
+      aspect-ratio: 3 / 2;
       object-fit: cover;
       opacity: .6;
       transition: opacity .3s;
