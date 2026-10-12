@@ -37,7 +37,7 @@ index.html
 css/style.css          layout, nav, sidebar, ads, cards, footer (A)
 css/adventure.css      Adventure Mode (B)
 demos/                 one self-contained HTML file per demo, CSS in its own <style> (B)
-assets/ads/            banner.jpg, sky.png, iklan.mp4 (A)
+assets/ads/            banner.svg, sky.svg, iklan.mp4 (A)
 assets/img/            logo.svg, social icons (A)
 assets/img/adventure/  pixel-art sprites (B)
 ```
