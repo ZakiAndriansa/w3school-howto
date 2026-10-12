@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Form in Navbar</title>
   <style>
+    /* Scrollbar disembunyikan (isi tetap bisa digulir): tanpa ini scrollbar sesaat saat
+       halaman dimuat bisa membuat teks turun baris dan tinggi iframe jadi tidak pas */
+    html { scrollbar-width: none; }
+
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Verdana, sans-serif;
       font-size: 15px;
+      line-height: 1.5;  /* seperti w3.css asli */
     }
 
     .topnav {
