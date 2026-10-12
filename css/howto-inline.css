@@ -1,7 +1,7 @@
 /* =========================================================
    howto-inline.css: demo popup TANPA iframe (pemilik: Anggota B)
    Login Form, Hover/Click Dropdowns, Side Navigation, Modal Box,
-   Fullscreen Navigation. Popup-nya harus menutupi seluruh halaman
+   Modal Image, Lightbox, Fullscreen Navigation. Popup-nya harus menutupi seluruh halaman
    seperti situs asli, jadi demo ini tidak bisa di dalam iframe.
    Ukuran dan warna disalin dari w3.css + howto.css asli.
    Buka/tutup tanpa JS: :target (href="#id" membuka, href="#!" menutup),
@@ -334,6 +334,168 @@
 @keyframes hdTop {
   from { top: -300px; opacity: 0; }
   to { top: 0; opacity: 1; }
+}
+
+/* ---------- 7. Modal Image ---------- */
+/* Gambar kecil 50% lebar kartu, rasio asli 3:2 */
+.hd-modalimg-thumb img {
+  width: 50%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.hd-modalimg-thumb:hover img { opacity: .7; }
+
+/* Popup hitam 90% dengan gambar besar di tengah */
+.hd-imgmodal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding-top: 100px;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.hd-imgmodal:target { display: block; }
+
+.hd-imgmodal-img,
+.hd-imgmodal-caption {
+  position: relative;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  margin: auto;
+  animation: hdZoom .6s;
+}
+
+.hd-imgmodal-caption {
+  height: 150px;
+  padding: 10px 0;
+  color: #ccc;
+  text-align: center;
+}
+
+.hd-imgmodal .hd-imgmodal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  z-index: 1;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.hd-imgmodal .hd-imgmodal-close:hover { color: #bbb; }
+
+@media (max-width: 700px) {
+  .hd-imgmodal-img { width: 100%; }
+}
+
+/* ---------- 8. Lightbox ---------- */
+/* Tiga thumbnail berjajar, melebar 8px ke kiri-kanan seperti w3-row-padding */
+.hd-lb-row {
+  display: flex;
+  margin: 0 -8px;
+}
+
+.hd-lb-row a {
+  width: 33.333%;
+  padding: 0 8px;
+}
+
+.hd-lb-row img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.hd-lb-row img:hover { box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .2), 0 4px 20px 0 rgba(0, 0, 0, .19); }
+
+/* Satu popup per gambar (:target), latar hitam penuh (w3-modal w3-black) */
+.hd-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding-top: 100px;
+  overflow: auto;
+  background-color: #000;
+  color: #fff;
+}
+
+.hd-lightbox:target { display: block; }
+
+.hd-lightbox .hd-lb-close {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  padding: 0 16px;
+  color: #fff;
+  font-size: 48px;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.hd-lightbox .hd-lb-close:hover { color: #757575; }
+
+.hd-lb-content {
+  width: 900px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hd-lb-content img { width: 100%; }
+
+/* Baris caption dengan panah kiri/kanan */
+.hd-lb-caption {
+  position: relative;
+  padding: .01em 16px;
+  text-align: center;
+}
+
+.hd-lb-caption p { margin: 1.2em 0; }
+
+.hd-lb-caption a {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.hd-lb-caption a:hover { color: #757575; }
+
+.hd-lb-prev { left: 2%; }
+.hd-lb-next { left: 98%; }
+
+/* Thumbnail di bawah: redup, terang saat hover atau sedang dibuka */
+.hd-lb-thumbs { display: flex; }
+
+.hd-lb-thumbs a { width: 33.333%; }
+
+.hd-lb-thumbs img { opacity: .6; }
+
+.hd-lb-thumbs img:hover,
+.hd-lb-thumbs .active img { opacity: 1; }
+
+/* Lebar kotak seperti w3-modal-content: 900px, 600px, 500px, lalu penuh di HP */
+@media (max-width: 992px) {
+  .hd-lb-content { width: 600px; }
+}
+
+@media (max-width: 768px) {
+  .hd-lightbox { padding-top: 50px; }
+  .hd-lb-content { width: 500px; }
+}
+
+@media (max-width: 600px) {
+  .hd-lightbox { padding-top: 30px; }
+  .hd-lb-content { width: auto; margin: 0 10px; }
 }
 
 /* ---------- 6. Fullscreen Navigation ---------- */
