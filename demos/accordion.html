@@ -13,7 +13,8 @@
       font-size: 15px;
     }
 
-    /* <details> = satu bagian accordion, <summary> = tombolnya */
+    /* <details> = satu bagian accordion, <summary> = tombolnya.
+       name="acc" yang sama: membuka satu bagian otomatis menutup yang lain */
     .accordion summary {
       display: flex;
       justify-content: space-between;
@@ -57,21 +58,21 @@
 </head>
 <body>
 
-  <details class="accordion" open>
+  <details class="accordion" name="acc" open>
     <summary>Section 1</summary>
     <div class="panel">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </details>
 
-  <details class="accordion">
+  <details class="accordion" name="acc">
     <summary>Section 2</summary>
     <div class="panel">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </details>
 
-  <details class="accordion">
+  <details class="accordion" name="acc">
     <summary>Section 3</summary>
     <div class="panel">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
