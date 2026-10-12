@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Tabs</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 8px;
+      font-family: "Lato", Arial, sans-serif;
+    }
+
+    .tab-radio { display: none; }
+
+    .wrapper { display: flex; }
+
+    /* Kolom tombol tab di kiri */
+    .tab {
+      width: 35%;
+      height: 300px;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    .tab label {
+      display: block;
+      padding: 22px 16px;
+      font-size: 17px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .tab label:hover { background-color: #ddd; }
+
+    /* Isi tab di kanan */
+    .tabcontent {
+      display: none;
+      width: 65%;
+      height: 300px;
+      padding: 0 12px;
+      border: 1px solid #ccc;
+      border-left: none;
+    }
+
+    #v-london:checked ~ .wrapper .l-london,
+    #v-paris:checked ~ .wrapper .l-paris,
+    #v-tokyo:checked ~ .wrapper .l-tokyo { background-color: #ccc; }
+
+    #v-london:checked ~ .wrapper #London,
+    #v-paris:checked ~ .wrapper #Paris,
+    #v-tokyo:checked ~ .wrapper #Tokyo { display: block; }
+  </style>
+</head>
+<body>
+
+  <p>Click on the buttons inside the tabbed menu:</p>
+
+  <input type="radio" name="vcity" id="v-london" class="tab-radio" checked>
+  <input type="radio" name="vcity" id="v-paris" class="tab-radio">
+  <input type="radio" name="vcity" id="v-tokyo" class="tab-radio">
+
+  <div class="wrapper">
+    <div class="tab">
+      <label for="v-london" class="l-london">London</label>
+      <label for="v-paris" class="l-paris">Paris</label>
+      <label for="v-tokyo" class="l-tokyo">Tokyo</label>
+    </div>
+
+    <div id="London" class="tabcontent">
+      <h3>London</h3>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+      <h3>Paris</h3>
+      <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+      <h3>Tokyo</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+  </div>
+
+</body>
+</html>

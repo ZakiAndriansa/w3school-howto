@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" shape-rendering="crispEdges">
+  <!-- Papan petunjuk ADVENTURE (pixel-art buatan sendiri) -->
+  <rect x="58" y="60" width="12" height="64" fill="#7a4b2a"/>
+  <rect x="58" y="60" width="12" height="64" fill="none" stroke="#2b2016" stroke-width="3"/>
+  <rect x="46" y="118" width="36" height="8" fill="#2b2016"/>
+  <polygon points="6,26 106,26 122,46 106,66 6,66" fill="#b8742e" stroke="#2b2016" stroke-width="4"/>
+  <rect x="10" y="58" width="92" height="3" fill="#8a5220"/>
+  <rect x="14" y="30" width="6" height="4" fill="#d99a52"/>
+  <rect x="90" y="58" width="6" height="4" fill="#8a5220"/>
+  <text x="58" y="51" text-anchor="middle" font-family="Courier New, monospace" font-size="15" font-weight="bold" fill="#2b2016">ADVENTURE</text>
+</svg>
