@@ -62,8 +62,134 @@ a {
 }
 
 #main {
-  padding: 16px;
+  padding: 16px 24px 48px 24px;
   min-width: 0;
+}
+
+/* =========================================================
+   PAGE EXTRAS COMPONENT (feat/page-extras)
+   Share Bar, Heading, Pagination, Intro & Responsive Akhir
+   ========================================================= */
+
+/* ---------- Share Bar (.ws-share) ---------- */
+.ws-share {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ws-share--float {
+  float: right;
+  margin: 4px 0 10px 22px;
+}
+
+.ws-share-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #282a35;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-right: 2px;
+}
+
+.ws-share-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f1f1;
+  color: #282a35;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  transition: background-color 0.15s, transform 0.15s;
+}
+
+.ws-share-btn:hover {
+  background: #e7e9eb;
+  transform: translateY(-1px);
+}
+
+.ws-share-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ---------- Judul H1 & Intro ---------- */
+#main h1 {
+  font-size: 42px;
+  font-weight: 400;
+  margin: 10px 0;
+  font-family: var(--font);
+  color: #000000;
+  letter-spacing: -0.5px;
+}
+
+.color_h1 {
+  color: #000000;
+}
+
+.heading-divider {
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  margin: 20px -24px;
+}
+
+.intro {
+  font-size: 17px;
+  line-height: 1.5;
+  color: #000000;
+  margin: 20px 0;
+}
+
+/* ---------- Pagination (.howtopag) ---------- */
+.howtopag {
+  display: table;
+  margin: auto;
+  height: 36px;
+  font-size: 16px;
+  user-select: none;
+}
+
+.howtopag-bottom {
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.howtopag_item {
+  display: table-cell;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 7px 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none !important;
+  color: #000000;
+  font-size: 16px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.howtopag_item.pagactive {
+  background-color: #04AA6D !important;
+  color: #ffffff !important;
+}
+
+.howtopag_item:hover:not(.pagactive):not(.pagdisabled) {
+  background-color: #dddddd;
+  color: #000000;
+}
+
+.howtopag_item.pagdisabled,
+.howtopag_item.pagdisabled:hover {
+  background-color: transparent;
+  color: #dddddd;
+  cursor: default;
 }
 
 /* ---------- 4. Kartu Demo (Titik Sambung A dan B) ---------- */
@@ -167,6 +293,42 @@ a {
 .frame-slideshow {
   height: 380px;
   height: calc(100cqw * 0.35 + 39px);
+}
+
+/* ---------- Responsive Akhir ---------- */
+/* <= 992px: sidebar berubah jadi drawer (lihat bagian 8), kolom iklan kanan disembunyikan */
+@media screen and (max-width: 992px) {
+  aside#right {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  #main {
+    padding: 12px;
+  }
+
+  #main h1 {
+    font-size: 30px;
+  }
+
+  .ws-share--float {
+    float: none;
+    margin: 10px 0;
+  }
+
+  .howtopag {
+    font-size: 14px;
+  }
+
+  .howtopag_item {
+    width: 30px;
+    padding: 5px 0;
+  }
 }
 
 /* =========================================================
