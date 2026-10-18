@@ -9,8 +9,7 @@ Tugas mata kuliah Pemrograman Web: meniru tampilan https://www.w3schools.com/how
 | Anggota B | Zaki Andriansa | 22 kartu demo (14 iframe + 8 popup inline), Learn in Adventure Mode |
 
 ## Dokumen
-1. [PLAN.md](PLAN.md): rencana lengkap, pembagian tugas, alur GitHub.
-2. [CLAUDE.md](CLAUDE.md): konteks untuk Claude Code.
+[PLAN.md](PLAN.md): rencana lengkap, pembagian tugas, alur GitHub.
 
 ## Menjalankan
 Buka `index.html` dengan ekstensi VS Code **Live Server**.
