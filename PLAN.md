@@ -154,7 +154,3 @@ Butuh perbaikan setelah merge? Buat branch baru dari `main`: `git checkout -b fi
 - [ ] Rapi di lebar 375px, 768px, 1280px
 - [ ] Riwayat commit dan PR ada dari kedua anggota
 - [ ] Link GitHub Pages jalan
-
-## 10. Pakai Claude Code?
-Di root repo ada `CLAUDE.md`. Claude Code otomatis membacanya, jadi cukup buka folder repo lalu minta, misalnya:
-> "Kerjakan top nav sesuai CLAUDE.md, aku Anggota A."
